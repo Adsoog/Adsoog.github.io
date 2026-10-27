@@ -1,0 +1,202 @@
+---
+import { useTranslations, type Lang } from '../../i18n/ui';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'es' } = Astro.props;
+const t = useTranslations(lang);
+
+const navItems = [
+  { id: "sobre-mi", label: t('nav.about') },
+  { id: "proyectos", label: t('nav.projects') },
+  { id: "habilidades", label: t('nav.skills') },
+  { id: "trayectoria", label: t('nav.experience') },
+  { id: "contacto", label: t('nav.contact') },
+];
+
+const waText = encodeURIComponent(t('contact.wa_text'));
+
+const socialLinks = [
+  { label: 'GITHUB', href: 'https://github.com/Adsoog', external: true },
+  { label: lang === 'en' ? 'PHONE' : 'TELÉFONO', href: 'tel:+51983016855', external: false },
+  { label: 'EMAIL', href: 'mailto:iadso.ao@gmail.com', external: false },
+];
+---
+
+<aside class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-5/12 lg:flex-col lg:justify-between lg:py-24 py-12">
+  <!-- Top identity block -->
+  <div>
+    <!-- Language Switcher Pill -->
+    <div class="mb-6 flex items-center gap-1.5 text-xs font-mono">
+      <span class="text-subtle mr-1">LANG:</span>
+      <a
+        href="/"
+        data-lang-switch="es"
+        class:list={[
+          "px-2.5 py-0.5 rounded transition-colors duration-150 font-medium",
+          lang === 'es'
+            ? "bg-surface-hover text-heading border border-border-active shadow-sm"
+            : "text-subtle hover:text-heading hover:bg-surface-hover/40"
+        ]}
+        aria-label="Versión en Español"
+      >
+        ES
+      </a>
+      <span class="text-subtle/40">/</span>
+      <a
+        href="/en"
+        data-lang-switch="en"
+        class:list={[
+          "px-2.5 py-0.5 rounded transition-colors duration-150 font-medium",
+          lang === 'en'
+            ? "bg-surface-hover text-heading border border-border-active shadow-sm"
+            : "text-subtle hover:text-heading hover:bg-surface-hover/40"
+        ]}
+        aria-label="English Version"
+      >
+        EN
+      </a>
+    </div>
+
+    <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-heading">
+      Adso Martín Obregón Gutiérrez
+    </h1>
+    <h2 class="mt-2 text-base font-medium text-body">
+      {t('sidebar.tagline')}
+    </h2>
+
+    <!-- Estado disponible discreto -->
+    <div class="mt-4 inline-flex items-center gap-2 text-xs text-muted font-mono">
+      <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+      <span>{t('sidebar.status')}</span>
+    </div>
+
+    <!-- Desktop Floating Sidebar Navigation -->
+    <nav class="hidden lg:block mt-10" aria-label="Secciones de la página y enlaces">
+      <!-- Secciones de scroll interno -->
+      <ul class="space-y-3 w-max">
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={`#${item.id}`}
+              data-section={item.id}
+              class="nav-link block py-1 text-xs sm:text-[13px] font-mono uppercase tracking-widest text-subtle hover:text-heading transition-all duration-200"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <!-- Enlaces externos con el mismo estilo de navegación -->
+      <ul class="mt-7 space-y-3 w-max border-t border-border-active/30 pt-5">
+        {socialLinks.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              target={item.external ? "_blank" : undefined}
+              rel={item.external ? "noopener noreferrer" : undefined}
+              class="block py-1 text-xs sm:text-[13px] font-mono uppercase tracking-widest text-subtle hover:text-heading transition-all duration-200"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Mobile social and contact links -->
+  <div class="mt-10 lg:hidden">
+    <ul class="flex flex-wrap items-center gap-4 text-xs font-mono uppercase tracking-widest text-muted" aria-label="Enlaces directos">
+      {socialLinks.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            target={item.external ? "_blank" : undefined}
+            rel={item.external ? "noopener noreferrer" : undefined}
+            class="hover:text-heading transition-colors py-1 inline-flex items-center gap-1"
+          >
+            <span>{item.label}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</aside>
+
+<script>
+  function setupNavObserver() {
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+    const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+
+    if (!sections.length || !navLinks.length) return;
+
+    function activateSection(id) {
+      navLinks.forEach((link) => {
+        if (link.getAttribute('data-section') === id) {
+          link.classList.remove('text-subtle');
+          link.classList.add('text-heading', 'font-semibold', 'translate-x-1');
+        } else {
+          link.classList.remove('text-heading', 'font-semibold', 'translate-x-1');
+          link.classList.add('text-subtle');
+        }
+      });
+    }
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -65% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      // Si estamos casi al final de la página, forzamos la última sección (contacto)
+      const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60;
+      if (isAtBottom) {
+        activateSection(sections[sections.length - 1].getAttribute('id'));
+        return;
+      }
+
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          activateSection(id);
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach((section) => observer.observe(section));
+
+    // Listener de scroll para asegurar que la última sección se marque al llegar al fondo
+    window.addEventListener('scroll', () => {
+      const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60;
+      if (isAtBottom) {
+        activateSection(sections[sections.length - 1].getAttribute('id'));
+      }
+    }, { passive: true });
+
+    // Mantener la sección actual (hash) al cambiar de idioma
+    const langSwitchers = document.querySelectorAll('[data-lang-switch]');
+    langSwitchers.forEach((el) => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetLang = el.getAttribute('data-lang-switch');
+        localStorage.setItem('preferred_lang', targetLang);
+        const currentHash = window.location.hash || '';
+        const targetBase = targetLang === 'en' ? '/en' : '/';
+        window.location.href = targetBase + currentHash;
+      });
+    });
+  }
+
+  // Soporta navegación SPA con ClientRouter y carga inicial
+  document.addEventListener('astro:page-load', setupNavObserver);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupNavObserver);
+  } else {
+    setupNavObserver();
+  }
+</script>

@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="bg-grad-3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#110e1c" />
+      <stop offset="50%" stop-color="#181329" />
+      <stop offset="100%" stop-color="#0a0812" />
+    </linearGradient>
+    <linearGradient id="purple-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
+    <filter id="glow-3" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="800" height="420" rx="16" fill="url(#bg-grad-3)" />
+  <rect width="800" height="420" rx="16" stroke="#372d5c" stroke-width="1.5" stroke-opacity="0.4" />
+
+  <!-- Ambient Glow -->
+  <circle cx="650" cy="120" r="160" fill="#8b5cf6" fill-opacity="0.12" filter="url(#glow-3)" />
+  <circle cx="160" cy="300" r="140" fill="#3b82f6" fill-opacity="0.08" filter="url(#glow-3)" />
+
+  <!-- Grid overlay -->
+  <g stroke="#ffffff" stroke-opacity="0.03" stroke-width="1">
+    <path d="M0 70 H800 M0 140 H800 M0 210 H800 M0 280 H800 M0 350 H800" />
+    <path d="M100 0 V420 M200 0 V420 M300 0 V420 M400 0 V420 M500 0 V420 M600 0 V420 M700 0 V420" />
+  </g>
+
+  <!-- ERP Dashboard Container -->
+  <g transform="translate(60, 45)">
+    <rect width="680" height="330" rx="12" fill="#120f21" stroke="#2c234a" stroke-width="1.5" />
+    
+    <!-- Top Header -->
+    <rect width="680" height="42" rx="12" fill="#1b1633" />
+    <rect y="30" width="680" height="12" fill="#1b1633" />
+    
+    <circle cx="28" cy="21" r="7" fill="#8b5cf6" />
+    <text x="44" y="25" fill="#f1f5f9" font-family="sans-serif" font-weight="600" font-size="13">Enterprise ERP Architecture // PostgreSQL High-Concurrency</text>
+
+    <rect x="520" y="10" width="145" height="22" rx="6" fill="#110e1c" stroke="#8b5cf6" stroke-width="1" />
+    <circle cx="534" cy="21" r="3.5" fill="#a78bfa" />
+    <text x="544" y="25" fill="#c4b5fd" font-family="monospace" font-weight="600" font-size="10">ACID · 0 LATENCY</text>
+
+    <!-- KPI Metric Cards (3 cards) -->
+    <g transform="translate(20, 58)">
+      <rect width="195" height="70" rx="8" fill="#18132e" stroke="#2e2454" />
+      <text x="16" y="24" fill="#94a3b8" font-family="sans-serif" font-size="11">Facturación &amp; Cobranza</text>
+      <text x="16" y="52" fill="#f1f5f9" font-family="sans-serif" font-weight="bold" font-size="20">$124,850.00</text>
+      <text x="135" y="50" fill="#10b981" font-family="monospace" font-size="11">+18.4%</text>
+    </g>
+
+    <g transform="translate(242, 58)">
+      <rect width="195" height="70" rx="8" fill="#18132e" stroke="#2e2454" />
+      <text x="16" y="24" fill="#94a3b8" font-family="sans-serif" font-size="11">Inventario &amp; Stock Multi-Sede</text>
+      <text x="16" y="52" fill="#f1f5f9" font-family="sans-serif" font-weight="bold" font-size="20">14,290 SKUs</text>
+      <text x="145" y="50" fill="#8b5cf6" font-family="monospace" font-size="11">SYNC</text>
+    </g>
+
+    <g transform="translate(464, 58)">
+      <rect width="195" height="70" rx="8" fill="#18132e" stroke="#2e2454" />
+      <text x="16" y="24" fill="#94a3b8" font-family="sans-serif" font-size="11">Google Maps Routing</text>
+      <text x="16" y="52" fill="#f1f5f9" font-family="sans-serif" font-weight="bold" font-size="20">38 Envíos</text>
+      <text x="135" y="50" fill="#38bdf8" font-family="monospace" font-size="11">LIVE</text>
+    </g>
+
+    <!-- Bottom Data Grid & Relational Structure -->
+    <g transform="translate(20, 145)">
+      <rect width="640" height="160" rx="8" fill="#0d0a17" stroke="#241b42" />
+      
+      <!-- Table Header -->
+      <rect width="640" height="32" rx="8" fill="#17122b" />
+      <text x="20" y="20" fill="#a78bfa" font-family="monospace" font-weight="600" font-size="11">DOC / FOLIO</text>
+      <text x="150" y="20" fill="#a78bfa" font-family="monospace" font-weight="600" font-size="11">CLIENTE / EMPRESA</text>
+      <text x="340" y="20" fill="#a78bfa" font-family="monospace" font-weight="600" font-size="11">GEO / UBICACIÓN</text>
+      <text x="490" y="20" fill="#a78bfa" font-family="monospace" font-weight="600" font-size="11">ESTADO RBAC</text>
+
+      <!-- Row 1 -->
+      <text x="20" y="60" fill="#f1f5f9" font-family="monospace" font-size="11">FAC-2026-098</text>
+      <text x="150" y="60" fill="#cbd5e1" font-family="sans-serif" font-size="11">Corporativo Industrial SA</text>
+      <text x="340" y="60" fill="#38bdf8" font-family="monospace" font-size="11">Maps: -12.046, -77.042</text>
+      <rect x="490" y="47" width="90" height="18" rx="4" fill="#10b981" fill-opacity="0.2" />
+      <text x="502" y="60" fill="#34d399" font-family="monospace" font-weight="600" font-size="10">APROBADO</text>
+
+      <!-- Row 2 -->
+      <text x="20" y="95" fill="#f1f5f9" font-family="monospace" font-size="11">FAC-2026-099</text>
+      <text x="150" y="95" fill="#cbd5e1" font-family="sans-serif" font-size="11">Distribuidora Global SAC</text>
+      <text x="340" y="95" fill="#38bdf8" font-family="monospace" font-size="11">Maps: -12.112, -77.028</text>
+      <rect x="490" y="82" width="90" height="18" rx="4" fill="#3b82f6" fill-opacity="0.2" />
+      <text x="502" y="95" fill="#60a5fa" font-family="monospace" font-weight="600" font-size="10">DESPACHO</text>
+
+      <!-- Row 3 -->
+      <text x="20" y="130" fill="#f1f5f9" font-family="monospace" font-size="11">FAC-2026-100</text>
+      <text x="150" y="130" fill="#cbd5e1" font-family="sans-serif" font-size="11">Servicios &amp; Logística SAC</text>
+      <text x="340" y="130" fill="#38bdf8" font-family="monospace" font-size="11">Maps: -12.088, -77.012</text>
+      <rect x="490" y="117" width="90" height="18" rx="4" fill="#f59e0b" fill-opacity="0.2" />
+      <text x="508" y="130" fill="#fbbf24" font-family="monospace" font-weight="600" font-size="10">AUDITORÍA</text>
+    </g>
+  </g>
+</svg>

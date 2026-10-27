@@ -1,0 +1,50 @@
+---
+import { useTranslations, type Lang } from '../../i18n/ui';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'es' } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section id="sobre-mi" class="min-h-[calc(100vh-6rem)] lg:min-h-screen flex flex-col justify-center mb-16 scroll-mt-24 lg:mb-24">
+  <div class="sticky top-0 z-20 -mx-6 mb-6 w-screen bg-surface/90 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+    <h2 class="text-xs font-mono font-semibold uppercase tracking-widest text-muted">
+      {t('about.section_title')}
+    </h2>
+  </div>
+
+  <div class="space-y-5 text-sm sm:text-base text-muted leading-relaxed font-normal">
+    <p class="text-lg sm:text-xl font-medium text-heading leading-relaxed">
+      {t('about.lead')}
+    </p>
+    <p set:html={t('about.p1')} />
+    <p set:html={t('about.p2')} />
+    <p set:html={t('about.p3')} />
+    <p set:html={t('about.p4')} />
+  </div>
+
+  <!-- Key Stack & Capability Pills -->
+  <div class="mt-8 flex flex-wrap gap-2 pt-2">
+    <span class="inline-flex items-center px-3 py-1 rounded-md bg-surface border border-border-subtle text-xs font-mono text-heading">
+      Docker & Servidores Linux
+    </span>
+    <span class="inline-flex items-center px-3 py-1 rounded-md bg-surface border border-border-subtle text-xs font-mono text-heading">
+      Gemini AI & Parsing de Documentos
+    </span>
+    <span class="inline-flex items-center px-3 py-1 rounded-md bg-surface border border-border-subtle text-xs font-mono text-heading">
+      Google Maps API
+    </span>
+    <span class="inline-flex items-center px-3 py-1 rounded-md bg-surface border border-border-subtle text-xs font-mono text-heading">
+      Python · Go · Java Spring Boot
+    </span>
+    <span class="inline-flex items-center px-3 py-1 rounded-md bg-surface border border-border-subtle text-xs font-mono text-heading">
+      Playwright & Manifest V3
+    </span>
+    <span class="inline-flex items-center px-3 py-1 rounded-md bg-surface border border-border-subtle text-xs font-mono text-heading">
+      Flutter · Google Play Console
+    </span>
+  </div>
+</section>

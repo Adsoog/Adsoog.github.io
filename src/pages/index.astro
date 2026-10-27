@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Sidebar from '../components/layout/Sidebar.astro';
+import About from '../components/sections/About.astro';
+import Projects from '../components/sections/Projects.astro';
+import Skills from '../components/sections/Skills.astro';
+import Experience from '../components/sections/Experience.astro';
+import Contact from '../components/sections/Contact.astro';
+---
+
+<Layout lang="es">
+  <!-- Barra lateral fija / navegación de layout -->
+  <Sidebar lang="es" />
+
+  <!-- Flujo de secciones de contenido -->
+  <main class="lg:w-7/12 lg:py-24 pt-6">
+    <About lang="es" />
+    <Projects lang="es" />
+    <Skills lang="es" />
+    <Experience lang="es" />
+    <Contact lang="es" />
+  </main>
+</Layout>

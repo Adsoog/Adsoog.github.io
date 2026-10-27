@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-vicuna" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#451a03" />
+      <stop offset="100%" stop-color="#b45309" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg-vicuna)" />
+  <g opacity="0.12" stroke="#ffffff" stroke-width="1">
+    <path d="M 0,90 H 800 M 0,180 H 800 M 0,270 H 800 M 0,360 H 800" />
+    <path d="M 160,0 V 450 M 320,0 V 450 M 480,0 V 450 M 640,0 V 450" />
+  </g>
+  <!-- Game Mountains / Andes background -->
+  <polygon points="120,320 280,140 440,320" fill="#78350f" opacity="0.6" />
+  <polygon points="340,320 520,100 700,320" fill="#92400e" opacity="0.8" />
+  <polygon points="520,100 480,150 560,150" fill="#fef3c7" opacity="0.9" />
+  <!-- Gamepad / Godot icon -->
+  <g transform="translate(400, 220)">
+    <rect x="-90" y="-45" width="180" height="90" rx="30" fill="#18181b" stroke="#f59e0b" stroke-width="4" />
+    <!-- D-pad -->
+    <path d="M -50,-18 V 18 M -68,0 H -32" stroke="#ffffff" stroke-width="6" stroke-linecap="round" />
+    <!-- Buttons -->
+    <circle cx="35" cy="-10" r="7" fill="#ef4444" />
+    <circle cx="55" cy="5" r="7" fill="#3b82f6" />
+  </g>
+  <text x="400" y="415" fill="#fef3c7" font-family="monospace" font-size="16" font-weight="600" text-anchor="middle" letter-spacing="2">VICUÑA RISE · GODOT ENGINE & 2D/3D PHYSICS</text>
+</svg>

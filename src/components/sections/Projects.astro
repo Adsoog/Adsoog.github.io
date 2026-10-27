@@ -1,0 +1,395 @@
+---
+import esProjects from '../../data/es/projects.json';
+import enProjects from '../../data/en/projects.json';
+import { useTranslations, type Lang } from '../../i18n/ui';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'es' } = Astro.props;
+const t = useTranslations(lang);
+
+const projects = lang === 'en' ? enProjects : esProjects;
+---
+
+<section id="proyectos" class="mb-16 scroll-mt-24 lg:mb-24 select-none">
+  <!-- Header con controles de navegación -->
+  <div class="sticky top-0 z-20 -mx-6 mb-6 w-screen bg-surface/90 px-6 py-4 backdrop-blur md:-mx-12 md:px-12 lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:bg-transparent">
+    <div class="flex items-center justify-between">
+      <h2 class="text-xs font-mono font-semibold uppercase tracking-widest text-muted">
+        {t('projects.section_title')}
+      </h2>
+
+      <!-- Contador y botones Anterior / Siguiente -->
+      <div class="flex items-center gap-3">
+        <span id="project-counter" class="text-xs font-mono text-muted tracking-wider">
+          01 / {String(projects.length).padStart(2, '0')}
+        </span>
+        <div class="flex items-center gap-1.5">
+          <button
+            id="prev-project-btn"
+            type="button"
+            aria-label={lang === 'en' ? 'Previous project' : 'Proyecto anterior'}
+            class="p-2 rounded-lg bg-surface-card hover:bg-surface-hover text-body hover:text-heading border border-border-subtle hover:border-border-active transition-all cursor-pointer shadow-sm active:scale-95"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            id="next-project-btn"
+            type="button"
+            aria-label={lang === 'en' ? 'Next project' : 'Siguiente proyecto'}
+            class="p-2 rounded-lg bg-surface-card hover:bg-surface-hover text-body hover:text-heading border border-border-subtle hover:border-border-active transition-all cursor-pointer shadow-sm active:scale-95"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenedor del Carrusel (con padding lateral suave para evitar cortes de borde o sombra) -->
+  <div class="relative overflow-hidden p-1 -m-1">
+    <div
+      id="projects-carousel"
+      class="flex overflow-x-auto snap-x snap-mandatory gap-6 scrollbar-none scroll-smooth focus:outline-none cursor-grab active:cursor-grabbing p-1"
+      tabindex="0"
+      aria-label="Lista de proyectos"
+    >
+      {projects.map((project, index) => (
+        <article
+          class="project-slide w-full min-w-full flex-shrink-0 snap-center rounded-2xl bg-surface-card border border-border-subtle hover:border-border-active p-6 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300"
+          data-index={index}
+        >
+          <div>
+            <!-- Carátula / Artwork del proyecto -->
+            {project.image && (
+              <div class="w-full aspect-[16/9] sm:aspect-[21/9] rounded-xl overflow-hidden bg-surface border border-border-subtle mb-6 relative group">
+                <img
+                  id={project.imageLight ? `project-img-${project.id}` : undefined}
+                  src={project.image}
+                  alt={`Carátula de ${project.title}`}
+                  class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.02] pointer-events-none"
+                  loading="lazy"
+                  draggable="false"
+                />
+                {project.imageLight && (
+                  <div class="absolute bottom-3 right-3 flex items-center gap-1.5 bg-canvas/85 backdrop-blur-md border border-border-subtle rounded-lg px-2.5 py-1 text-[11px] font-mono text-muted shadow-md">
+                    <span class="text-subtle text-[10px]">TEMA:</span>
+                    <button
+                      type="button"
+                      data-theme-toggle-dark={project.image}
+                      data-theme-toggle-light={project.imageLight}
+                      data-target-img={`project-img-${project.id}`}
+                      class="px-1.5 py-0.5 rounded text-heading bg-surface-hover hover:text-accent font-medium cursor-pointer"
+                    >
+                      Dark
+                    </button>
+                    <span class="text-subtle/50">/</span>
+                    <button
+                      type="button"
+                      data-theme-toggle-light-trigger={project.imageLight}
+                      data-target-img={`project-img-${project.id}`}
+                      class="px-1.5 py-0.5 rounded text-subtle hover:text-heading hover:bg-surface-hover font-medium cursor-pointer"
+                    >
+                      Light
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
+
+            <!-- Meta superior: Categoría y Badge -->
+            <div class="flex flex-wrap items-center justify-between gap-3 border-b border-border-subtle pb-4">
+              <span class="text-xs font-mono text-subtle uppercase tracking-wider">
+                {project.category}
+              </span>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-mono text-heading border border-border-subtle rounded-md px-2.5 py-0.5 bg-surface-hover font-medium">
+                  {project.badge}
+                </span>
+                <span class="text-xs font-mono text-subtle">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+              </div>
+            </div>
+
+            <!-- Título y Métricas -->
+            <div class="mt-5">
+              <div class="flex flex-wrap items-baseline justify-between gap-3">
+                <h3 class="text-2xl sm:text-3xl font-bold text-heading tracking-tight">
+                  {project.title}
+                </h3>
+                {project.url && (
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1.5 text-xs font-mono text-accent hover:text-accent-hover hover:underline font-medium"
+                  >
+                    <span>{lang === 'en' ? 'Live Platform' : 'Visitar Plataforma'}</span>
+                    <span>↗</span>
+                  </a>
+                )}
+              </div>
+              {project.metrics && (
+                <div class="mt-2 text-xs font-mono text-emerald-600 inline-flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  <span>{project.metrics}</span>
+                </div>
+              )}
+            </div>
+
+            <!-- Descripción narrativa -->
+            <p class="mt-4 text-sm sm:text-base text-muted leading-relaxed font-normal">
+              {project.description}
+            </p>
+
+            <!-- Sección de Impacto & Arquitectura (Diseño editorial limpio, sin caja genérica con línea lateral) -->
+            <div class="mt-6 pt-5 border-t border-border-subtle">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-[11px] font-mono uppercase tracking-widest text-accent font-semibold">
+                  {t('projects.impact_label')}
+                </span>
+                <span class="text-subtle/40 font-mono text-xs">//</span>
+              </div>
+              <p class="text-sm text-body leading-relaxed font-normal">
+                {project.impact}
+              </p>
+            </div>
+          </div>
+
+          <!-- Tags de Tecnologías -->
+          <div class="mt-8 pt-5 border-t border-border-subtle">
+            <span class="text-[11px] font-mono uppercase tracking-wider text-subtle block mb-2.5 font-medium">
+              Tecnologías & Arquitectura:
+            </span>
+            <div class="flex flex-wrap gap-2">
+              {project.tags.map((tag) => (
+                <span class="text-xs font-mono text-body bg-surface border border-border-subtle px-3 py-1 rounded-md">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Indicador de Puntitos del Swipe (Paginación) -->
+    <div class="mt-6 flex items-center justify-center gap-2.5">
+      {projects.map((_, index) => (
+        <button
+          type="button"
+          class="project-dot h-2.5 rounded-full transition-all duration-300 cursor-pointer"
+          class:list={[
+            index === 0 ? "w-8 bg-border-active" : "w-2.5 bg-border-subtle hover:bg-subtle"
+          ]}
+          data-dot-index={index}
+          aria-label={`Ir al proyecto ${index + 1}`}
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  function setupProjectsCarousel() {
+    const carousel = document.getElementById('projects-carousel');
+    const counter = document.getElementById('project-counter');
+    const prevBtn = document.getElementById('prev-project-btn');
+    const nextBtn = document.getElementById('next-project-btn');
+    const dots = document.querySelectorAll('.project-dot');
+    const slides = document.querySelectorAll('.project-slide') as NodeListOf<HTMLElement>;
+
+    if (!carousel || !slides.length) return;
+
+    const totalSlides = slides.length;
+    let currentIndex = 0;
+
+    function updateActiveState(index: number) {
+      currentIndex = index;
+      if (counter) {
+        counter.textContent = `${String(index + 1).padStart(2, '0')} / ${String(totalSlides).padStart(2, '0')}`;
+      }
+
+      dots.forEach((dot, i) => {
+        if (i === index) {
+          dot.classList.remove('w-2.5', 'bg-border-subtle');
+          dot.classList.add('w-8', 'bg-border-active');
+        } else {
+          dot.classList.remove('w-8', 'bg-border-active');
+          dot.classList.add('w-2.5', 'bg-border-subtle');
+        }
+      });
+    }
+
+    function getActiveIndex() {
+      const scrollLeft = carousel.scrollLeft;
+      const slideWidth = carousel.clientWidth;
+      if (!slideWidth) return 0;
+      return Math.round(scrollLeft / slideWidth);
+    }
+
+    function scrollToSlide(index: number) {
+      const targetIdx = Math.min(Math.max(index, 0), totalSlides - 1);
+      carousel.style.scrollBehavior = 'smooth';
+      carousel.style.scrollSnapType = 'x mandatory';
+      carousel.scrollTo({
+        left: targetIdx * carousel.clientWidth,
+        behavior: 'smooth'
+      });
+      updateActiveState(targetIdx);
+    }
+
+    // Scroll listener pasivo para actualizar el puntito activo
+    let scrollTimeout: number;
+    carousel.addEventListener('scroll', () => {
+      window.clearTimeout(scrollTimeout);
+      scrollTimeout = window.setTimeout(() => {
+        const activeIdx = Math.min(Math.max(getActiveIndex(), 0), totalSlides - 1);
+        updateActiveState(activeIdx);
+      }, 50);
+    }, { passive: true });
+
+    // Botones Anterior / Siguiente
+    prevBtn?.addEventListener('click', () => {
+      scrollToSlide(currentIndex - 1);
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      scrollToSlide(currentIndex + 1);
+    });
+
+    // Clics en los puntitos
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const index = parseInt(dot.getAttribute('data-dot-index') || '0', 10);
+        scrollToSlide(index);
+      });
+    });
+
+    // Arrastre fluido con Mouse (Mouse Drag-to-Swipe sin saltos ni tirones)
+    let isMouseDown = false;
+    let startX = 0;
+    let startScrollLeft = 0;
+    let hasMoved = false;
+
+    carousel.addEventListener('mousedown', (e: MouseEvent) => {
+      isMouseDown = true;
+      hasMoved = false;
+      startX = e.clientX;
+      startScrollLeft = carousel.scrollLeft;
+      carousel.style.scrollSnapType = 'none';
+      carousel.style.scrollBehavior = 'auto';
+      carousel.classList.add('cursor-grabbing');
+    });
+
+    window.addEventListener('mousemove', (e: MouseEvent) => {
+      if (!isMouseDown) return;
+      const deltaX = e.clientX - startX;
+      if (Math.abs(deltaX) > 4) {
+        hasMoved = true;
+      }
+      carousel.scrollLeft = startScrollLeft - deltaX;
+    });
+
+    window.addEventListener('mouseup', (e: MouseEvent) => {
+      if (!isMouseDown) return;
+      isMouseDown = false;
+      carousel.classList.remove('cursor-grabbing');
+
+      if (hasMoved) {
+        const deltaX = e.clientX - startX;
+        if (deltaX < -45) {
+          scrollToSlide(currentIndex + 1);
+        } else if (deltaX > 45) {
+          scrollToSlide(currentIndex - 1);
+        } else {
+          scrollToSlide(currentIndex);
+        }
+      } else {
+        carousel.style.scrollSnapType = 'x mandatory';
+      }
+    });
+
+    // Deslizamiento Táctil en Móvil / Tablets (Touch Swipe)
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    carousel.addEventListener('touchstart', (e: TouchEvent) => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', (e: TouchEvent) => {
+      const touchEndX = e.changedTouches[0].clientX;
+      const touchEndY = e.changedTouches[0].clientY;
+      const diffX = touchStartX - touchEndX;
+      const diffY = touchStartY - touchEndY;
+
+      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 35) {
+        if (diffX > 0) {
+          scrollToSlide(currentIndex + 1);
+        } else {
+          scrollToSlide(currentIndex - 1);
+        }
+      }
+    }, { passive: true });
+
+    // Navegación con teclado (Flechas ← y →)
+    carousel.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') {
+        scrollToSlide(currentIndex - 1);
+      } else if (e.key === 'ArrowRight') {
+        scrollToSlide(currentIndex + 1);
+      }
+    });
+
+    // Control de temas Dark/Light en carátulas que lo admitan
+    document.querySelectorAll('[data-theme-toggle-dark]').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const targetId = btn.getAttribute('data-target-img');
+        const darkSrc = btn.getAttribute('data-theme-toggle-dark');
+        const img = document.getElementById(targetId || '') as HTMLImageElement;
+        if (img && darkSrc) {
+          img.src = darkSrc;
+          btn.classList.add('text-heading', 'bg-surface-hover');
+          btn.classList.remove('text-subtle');
+          const sibling = btn.parentElement?.querySelector('[data-theme-toggle-light-trigger]');
+          sibling?.classList.remove('text-heading', 'bg-surface-hover');
+          sibling?.classList.add('text-subtle');
+        }
+      });
+    });
+
+    document.querySelectorAll('[data-theme-toggle-light-trigger]').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const targetId = btn.getAttribute('data-target-img');
+        const lightSrc = btn.getAttribute('data-theme-toggle-light-trigger');
+        const img = document.getElementById(targetId || '') as HTMLImageElement;
+        if (img && lightSrc) {
+          img.src = lightSrc;
+          btn.classList.add('text-heading', 'bg-surface-hover');
+          btn.classList.remove('text-subtle');
+          const sibling = btn.parentElement?.querySelector('[data-theme-toggle-dark]');
+          sibling?.classList.remove('text-heading', 'bg-surface-hover');
+          sibling?.classList.add('text-subtle');
+        }
+      });
+    });
+  }
+
+  document.addEventListener('astro:page-load', setupProjectsCarousel);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupProjectsCarousel);
+  } else {
+    setupProjectsCarousel();
+  }
+</script>

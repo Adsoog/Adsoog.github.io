@@ -1,0 +1,69 @@
+{
+  "workExperience": [
+    {
+      "period": "2 years",
+      "role": "Lead Software Developer",
+      "company": "LO JUSTO",
+      "summary": "Technical leadership in architecting, developing, and deploying custom enterprise ERPs and bespoke software for mission-critical operations.",
+      "achievements": [
+        "End-to-end development of enterprise management modules: purchase orders, multi-branch inventory control, automated billing, and treasury.",
+        "IoT & hardware engineering: automated biometric time-tracking system integrating fingerprint sensors and mobile phone verification.",
+        "Engineered automated bots that drastically cut repetitive manual workloads in administrative workflows.",
+        "Complete re-engineering of data pipelines and business processes to maximize operational efficiency and throughput."
+      ],
+      "tech": ["Python", "Django", "PostgreSQL", "IoT / Hardware", "Automation Bots", "Docker", "Nginx", "Linux"]
+    },
+    {
+      "period": "1 year",
+      "role": "Software Developer",
+      "company": "JP Ingeniería y Servicios",
+      "summary": "Developed proprietary ERP modules and bespoke automated tools tailored to corporate operational demands.",
+      "achievements": [
+        "Designed and programmed tailored ERP modules integrating project management, operations, and financial auditing.",
+        "Built automated background scripts and bots to streamline data processing and eliminate operational bottlenecks.",
+        "Optimized relational database schemas and workflow pipelines ensuring strict transactional consistency."
+      ],
+      "tech": ["Python", "PostgreSQL", "Bots & Scripts", "Web Services", "ERP Systems"]
+    }
+  ],
+  "education": [
+    {
+      "period": "In Progress — Final Semester (4 Years)",
+      "degree": "B.S. in Systems Engineering",
+      "institution": "Universidad de Ciencias y Artes de América Latina (UCAL)",
+      "detail": "Final stage of academic degree. Focus on distributed systems architecture, database optimization, security, and enterprise software engineering."
+    },
+    {
+      "period": "Graduated — 3 Years",
+      "degree": "Professional Technical Bachelor in Software Design & Development",
+      "institution": "Certus",
+      "detail": "Comprehensive education with solid foundations in software engineering, application architecture, relational modeling, and clean code practices."
+    }
+  ],
+  "credentials": [
+    {
+      "title": "Google Play Console Publisher",
+      "desc": "Active developer account with apps published to the official Google Play Store (e.g. 360 Smile App), handling AAB bundles and mobile release cycles."
+    },
+    {
+      "title": "Infrastructure & Linux Servers",
+      "desc": "Management of Linux production servers (Ubuntu), Docker containers, Nginx reverse proxy with SSL/TLS hardening, and transactional email deliverability via AWS SES."
+    },
+    {
+      "title": "Chrome Extensions (Manifest V3) & Automation",
+      "desc": "Built browser extensions and unattended headless pipelines using Playwright for web orchestration, data extraction, and workflow automation."
+    }
+  ],
+  "languages": [
+    {
+      "name": "Spanish",
+      "level": "Native",
+      "desc": "Native proficiency"
+    },
+    {
+      "name": "English",
+      "level": "Intermediate-Advanced (B2/C1)",
+      "desc": "Professional working proficiency for remote teams, technical documentation, and international communication"
+    }
+  ]
+}

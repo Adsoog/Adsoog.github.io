@@ -1,0 +1,63 @@
+---
+import { useTranslations, type Lang } from '../../i18n/ui';
+
+interface Props {
+  project: {
+    id: string;
+    title: string;
+    category: string;
+    badge: string;
+    description: string;
+    impact: string;
+    tags: string[];
+    featured?: boolean;
+  };
+  lang?: Lang;
+}
+
+const { project, lang = 'es' } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<div class="group relative rounded-xl p-5 sm:p-6 transition-all duration-200 hover:bg-surface-hover/60">
+  <div class="flex flex-col gap-3">
+    
+    <!-- Top Meta: Category & Badge -->
+    <div class="flex flex-wrap items-center justify-between gap-2">
+      <span class="text-xs font-mono text-subtle uppercase tracking-wider">
+        {project.category}
+      </span>
+      <span class="text-xs font-mono text-muted border border-border-subtle rounded px-2 py-0.5 bg-surface-card/60">
+        {project.badge}
+      </span>
+    </div>
+
+    <!-- Title -->
+    <h3 class="text-lg font-semibold text-heading transition-colors">
+      {project.title}
+    </h3>
+
+    <!-- Description -->
+    <p class="text-sm text-muted leading-relaxed">
+      {project.description}
+    </p>
+
+    <!-- Impact Note -->
+    <div class="text-xs text-muted bg-surface-card/50 p-3 rounded-lg border-l-2 border-border-active space-y-1">
+      <span class="font-mono text-[11px] uppercase tracking-wider text-body block font-medium">
+        {t('projects.impact_label')}
+      </span>
+      <p class="text-muted leading-normal">{project.impact}</p>
+    </div>
+
+    <!-- Tags -->
+    <div class="flex flex-wrap gap-1.5 pt-2">
+      {project.tags.map((tag) => (
+        <span class="text-xs font-mono text-muted bg-surface-card border border-border-subtle/40 px-2.5 py-1 rounded">
+          {tag}
+        </span>
+      ))}
+    </div>
+
+  </div>
+</div>

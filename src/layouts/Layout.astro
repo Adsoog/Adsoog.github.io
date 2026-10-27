@@ -1,0 +1,103 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import '../styles/global.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/600.css';
+import { useTranslations, type Lang } from '../i18n/ui';
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: Lang;
+}
+
+const { lang = "es" } = Astro.props;
+const t = useTranslations(lang);
+
+const title = Astro.props.title || t('meta.title');
+const description = Astro.props.description || t('meta.description');
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://adso.is-a.dev");
+---
+
+<!doctype html>
+<html lang={lang} class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <ClientRouter />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="author" content="Adso Martín Obregón Gutiérrez" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+
+    <meta name="theme-color" content="#141518" />
+
+    <!-- Detección automática de idioma del navegador con memoria de preferencia -->
+    <script is:inline>
+      (function() {
+        try {
+          const path = window.location.pathname;
+          const isRoot = path === '/' || path === '' || path === '/index.html';
+          const savedLang = localStorage.getItem('preferred_lang');
+
+          if (isRoot) {
+            if (savedLang === 'en') {
+              window.location.replace('/en');
+            } else if (!savedLang) {
+              const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+              if (browserLang.startsWith('en')) {
+                window.location.replace('/en');
+              }
+            }
+          }
+        } catch (e) {
+          // localStorage no disponible (modo incógnito estricto)
+        }
+      })();
+    </script>
+  </head>
+  <body class="bg-canvas text-body antialiased selection:bg-surface-hover selection:text-heading relative min-h-screen">
+    <!-- Spotlight interactivo que sigue al mouse -->
+    <div
+      id="spotlight"
+      class="pointer-events-none fixed inset-0 z-30 transition-opacity duration-300 opacity-0 lg:opacity-100"
+      style="background: radial-gradient(600px circle at var(--mouse-x, -1000px) var(--mouse-y, -1000px), var(--color-accent-spotlight, rgba(104, 107, 179, 0.08)), transparent 80%);"
+    ></div>
+
+    <!-- Adornos sutiles a los costados (Líneas decorativas de ingeniería con gradiente) -->
+    <div class="pointer-events-none fixed top-0 left-0 h-full w-px bg-gradient-to-b from-transparent via-border-subtle/50 to-transparent hidden xl:block ml-6"></div>
+    <div class="pointer-events-none fixed top-0 right-0 h-full w-px bg-gradient-to-b from-transparent via-border-subtle/50 to-transparent hidden xl:block mr-6"></div>
+
+    <div class="relative z-10 mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
+      <div class="lg:flex lg:justify-between lg:gap-8">
+        <slot />
+      </div>
+    </div>
+
+    <!-- Script de seguimiento del mouse para el spotlight -->
+    <script is:inline>
+      (function() {
+        const spotlight = document.getElementById('spotlight');
+        if (!spotlight) return;
+
+        window.addEventListener('pointermove', (e) => {
+          spotlight.style.setProperty('--mouse-x', `${e.clientX}px`);
+          spotlight.style.setProperty('--mouse-y', `${e.clientY}px`);
+        }, { passive: true });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+[
+  {
+    "category": "Backend & Arquitectura",
+    "description": "Sistemas escalables, microservicios y APIs robustas orientadas al rendimiento.",
+    "icon": "server",
+    "skills": [
+      { "name": "Python", "detail": "Django, FastAPI, AsyncIO", "level": "Avanzado" },
+      { "name": "Java", "detail": "Spring Boot, Maven, JPA", "level": "Intermedio-Avanzado" },
+      { "name": "Go (Golang)", "detail": "Concurrencia, Microservicios, REST", "level": "Intermedio" },
+      { "name": "Arquitectura de Microservicios", "detail": "Event-driven, REST, WebSockets", "level": "Avanzado" },
+      { "name": "REST APIs & WebSockets", "detail": "Comunicación en tiempo real y baja latencia", "level": "Avanzado" }
+    ]
+  },
+  {
+    "category": "Cloud, DevOps & Servidores",
+    "description": "Despliegue, contenedores, seguridad de infraestructura y servicios en la nube.",
+    "icon": "cloud",
+    "skills": [
+      { "name": "Docker", "detail": "Contenedorización, Docker Compose y multi-stage builds", "level": "Avanzado" },
+      { "name": "Ubuntu / Linux Servers", "detail": "Administración de sistemas, cronjobs, systemd y bash scripting", "level": "Avanzado" },
+      { "name": "Nginx & Reverse Proxy", "detail": "Balanceo de carga, SSL/TLS, compresión y routing", "level": "Avanzado" },
+      { "name": "Seguridad de Servidores", "detail": "Hardening, firewalls (UFW/fail2ban), políticas de acceso SSH", "level": "Avanzado" },
+      { "name": "AWS & AWS SES", "detail": "Infraestructura cloud, EC2, S3, integración de mailing masivo y transaccional con SES", "level": "Avanzado" }
+    ]
+  },
+  {
+    "category": "Automatización, Bots & Extensiones",
+    "description": "Orquestación web, bots para reducción de carga operativa y extensiones de navegador.",
+    "icon": "bot",
+    "skills": [
+      { "name": "Playwright & Web Scraping", "detail": "Navegación desatendida, extracción compleja y bypass de fricciones", "level": "Avanzado" },
+      { "name": "Google Gemini & IA de Bajo Costo", "detail": "Parsing y procesamiento inteligente de documentos a escala, OCR y extracción de datos", "level": "Avanzado" },
+      { "name": "Google Maps API & Geocoding", "detail": "Cálculo de rutas, servicios de geolocalización y mapas interactivos", "level": "Avanzado" },
+      { "name": "Chrome Extensions (MV3)", "detail": "Service workers, inyección en DOM e integración con backend", "level": "Avanzado" },
+      { "name": "Bots Operativos & Flujos", "detail": "Automatización de tareas repetitivas para optimizar tiempos de equipo", "level": "Avanzado" }
+    ]
+  },
+  {
+    "category": "ERPs Empresariales & IoT",
+    "description": "Software integral a medida, hardware IoT y bases de datos relacionales.",
+    "icon": "database",
+    "skills": [
+      { "name": "ERPs Propietarios a Medida", "detail": "Facturación, inventarios avanzados, órdenes de compra y RBAC", "level": "Especialista" },
+      { "name": "Integración IoT & Hardware", "detail": "Marcaciones automáticas con huella dactilar y autenticación móvil", "level": "Avanzado" },
+      { "name": "PostgreSQL", "detail": "Modelado relacional, transacciones ACID, índices y optimización", "level": "Avanzado" },
+      { "name": "Odoo ERP", "detail": "Adaptación modular e integración con sistemas externos", "level": "Intermedio-Avanzado" }
+    ]
+  },
+  {
+    "category": "Frontend & UI/UX",
+    "description": "Interfaces limpias, ergonómicas y sin sobrecarga innecesaria.",
+    "icon": "layout",
+    "skills": [
+      { "name": "Astro & Tailwind CSS", "detail": "SSG ultra-rápido y sistemas de diseño escalables", "level": "Avanzado" },
+      { "name": "HTMX & Alpine.js", "detail": "Interactividad reactiva y ligera sin bloatware", "level": "Avanzado" },
+      { "name": "Angular", "detail": "Módulos y SPAs estructuradas", "level": "Intermedio-Avanzado" },
+      { "name": "Diseño de Sistemas UI/UX", "detail": "Flujos de usuario optimizados y ergonomía visual", "level": "Avanzado" }
+    ]
+  },
+  {
+    "category": "Mobile Development",
+    "description": "Desarrollo multiplataforma y ciclo completo de publicación oficial.",
+    "icon": "smartphone",
+    "skills": [
+      { "name": "Flutter & Dart", "detail": "Apps para Android e iOS con arquitectura limpia", "level": "Avanzado" },
+      { "name": "Google Play Console", "detail": "Publicación, empaquetado AAB, firmas y gestión en tienda", "level": "Producción" },
+      { "name": "Media Pipeline", "detail": "Captura dinámica y procesamiento multimedia en tiempo real", "level": "Avanzado" }
+    ]
+  }
+]

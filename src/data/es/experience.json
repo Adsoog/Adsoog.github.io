@@ -1,0 +1,69 @@
+{
+  "workExperience": [
+    {
+      "period": "2 años",
+      "role": "Desarrollador Líder (Lead Software Developer)",
+      "company": "LO JUSTO",
+      "summary": "Liderazgo técnico en el diseño, desarrollo y despliegue de ERPs integrales y software a medida para operaciones críticas de la empresa.",
+      "achievements": [
+        "Desarrollo completo de módulos de gestión empresarial: órdenes de compra, control exhaustivo de inventarios multisede, facturación y tesorería.",
+        "Implementación de soluciones IoT y hardware: sistema de marcaciones y control de asistencia automatizado con huella dactilar y validación vía teléfono celular.",
+        "Desarrollo de bots de automatización operativa que redujeron drásticamente la carga laboral manual en tareas administrativas y repetitivas.",
+        "Reingeniería integral de procesos y flujos de datos para optimizar la eficiencia y rendimiento operativo global de la empresa."
+      ],
+      "tech": ["Python", "Django", "PostgreSQL", "IoT / Hardware", "Bots de Automatización", "Docker", "Nginx", "Linux"]
+    },
+    {
+      "period": "1 año",
+      "role": "Desarrollador de Software",
+      "company": "JP Ingeniería y Servicios",
+      "summary": "Desarrollo de ERPs propietarios y herramientas personalizadas adaptadas a las necesidades operativas de la compañía.",
+      "achievements": [
+        "Diseño y programación de módulos ERP a medida para la integración de operaciones, finanzas y control de proyectos.",
+        "Construcción de bots de automatización para agilizar la gestión de datos y eliminar cuellos de botella laborales.",
+        "Optimización de flujos de trabajo e integración de bases de datos relacionales para garantizar integridad y consistencia operativa."
+      ],
+      "tech": ["Python", "PostgreSQL", "Bots & Scripts", "Web Services", "Sistemas ERP"]
+    }
+  ],
+  "education": [
+    {
+      "period": "En curso — Último Ciclo (4 Años)",
+      "degree": "Ingeniería de Sistemas",
+      "institution": "Universidad de Ciencias y Artes de América Latina (UCAL)",
+      "detail": "Etapa final de la carrera. Especialización en arquitectura de sistemas distribuidos, optimización de bases de datos, seguridad e ingeniería de software de alto impacto."
+    },
+    {
+      "period": "Titulado — 3 Años",
+      "degree": "Bachiller Técnico Profesional en Diseño y Desarrollo de Software",
+      "institution": "Certus",
+      "detail": "Formación integral con bases sólidas en ingeniería de software, arquitectura de aplicaciones, modelado relacional y buenas prácticas de desarrollo."
+    }
+  ],
+  "credentials": [
+    {
+      "title": "Google Play Console Publisher",
+      "desc": "Cuenta activa de desarrollador con publicaciones directas en la tienda oficial de Google (ej. 360 Smile App), manejo de AABs y ciclo de vida móvil."
+    },
+    {
+      "title": "Infraestructura & Servidores",
+      "desc": "Administración de servidores Linux (Ubuntu), Docker, Nginx con SSL/TLS, hardening de seguridad y configuración de envíos masivos con AWS SES."
+    },
+    {
+      "title": "Chrome Extensions (Manifest V3) & Automatización",
+      "desc": "Creación de extensiones y pipelines desatendidos con Playwright para orquestación web, extracción de datos y optimización de tareas complejas."
+    }
+  ],
+  "languages": [
+    {
+      "name": "Español",
+      "level": "Nativo",
+      "desc": "Lengua materna"
+    },
+    {
+      "name": "Inglés",
+      "level": "Intermedio-Avanzado",
+      "desc": "Capacidad profesional para equipos remotos, especificaciones técnicas y comunicación internacional"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+[
+  {
+    "category": "Backend Engineering & Architecture",
+    "description": "Scalable architectures, high concurrency, and distributed services.",
+    "skills": [
+      { "name": "Python", "detail": "Django, FastAPI, Automated Scripts", "level": "Advanced" },
+      { "name": "Go (Golang)", "detail": "Microservices, Low-latency concurrency", "level": "Intermediate" },
+      { "name": "Java", "detail": "Spring Boot, REST APIs, Design Patterns", "level": "Intermediate" },
+      { "name": "PostgreSQL", "detail": "Indexing, Optimization, Relational modeling", "level": "Advanced" }
+    ]
+  },
+  {
+    "category": "AI Automation & Browser Intelligence",
+    "description": "Headless web orchestration, automated pipelines, and extensions.",
+    "skills": [
+      { "name": "Google Gemini & Cost-Effective AI", "detail": "Large-scale document parsing, OCR and structured data extraction", "level": "Advanced" },
+      { "name": "Google Maps API", "detail": "Geocoding, route calculation and real-time mapping", "level": "Advanced" },
+      { "name": "Playwright", "detail": "Web orchestration & data extraction", "level": "Advanced" },
+      { "name": "Chrome Extensions", "detail": "Manifest V3, Service Workers, DOM APIs", "level": "Advanced" },
+      { "name": "Web Scraping", "detail": "Anti-detection, Session management, Proxies", "level": "Advanced" }
+    ]
+  },
+  {
+    "category": "Mobile & Frontend Systems",
+    "description": "Cross-platform mobile apps and fluid web interfaces.",
+    "skills": [
+      { "name": "Flutter / Dart", "detail": "Cross-platform apps, State management", "level": "Advanced" },
+      { "name": "Google Play Console", "detail": "AABs, Store deployments, Production lifecycle", "level": "Production" },
+      { "name": "Astro / Tailwind CSS", "detail": "High-speed SSG, Modern UI/UX, Component systems", "level": "Advanced" },
+      { "name": "TypeScript / JS", "detail": "Asynchronous flows, Microservices, DOM engines", "level": "Advanced" }
+    ]
+  },
+  {
+    "category": "DevOps & Cloud Infrastructure",
+    "description": "Server administration, containerization, and automated deployments.",
+    "skills": [
+      { "name": "Linux Servers", "detail": "Ubuntu, Bash scripting, Hardening & Security", "level": "Advanced" },
+      { "name": "Docker", "detail": "Containerization, Multi-stage builds, Compose", "level": "Intermediate" },
+      { "name": "Nginx & SSL", "detail": "Reverse Proxy, Load Balancing, Certbot", "level": "Advanced" },
+      { "name": "AWS SES", "detail": "Mass transactional email pipelines", "level": "Intermediate" }
+    ]
+  }
+]
