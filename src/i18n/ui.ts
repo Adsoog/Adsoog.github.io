@@ -36,7 +36,7 @@ export const ui = {
 
     'experience.section_title': 'Trayectoria',
     'experience.work_title': 'Experiencia Laboral (3 Años Profesionales)',
-    'experience.badge_role': 'Software Engineer',
+    'experience.badge_role': 'Lead Software Engineer',
     'experience.edu_title': 'Formación Académica',
     'experience.cred_title': 'Credenciales & Especialidades',
     'experience.lang_title': 'Idiomas',
@@ -74,7 +74,7 @@ export const ui = {
 
     'experience.section_title': 'Experience',
     'experience.work_title': 'Work Experience (3 Professional Years)',
-    'experience.badge_role': 'Software Engineer',
+    'experience.badge_role': 'Lead Software Engineer',
     'experience.edu_title': 'Education',
     'experience.cred_title': 'Credentials & Specializations',
     'experience.lang_title': 'Languages',

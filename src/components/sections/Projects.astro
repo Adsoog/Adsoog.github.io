@@ -62,23 +62,23 @@ const projects = lang === 'en' ? enProjects : esProjects;
     >
       {projects.map((project, index) => (
         <article
-          class="project-slide w-full min-w-full flex-shrink-0 snap-center rounded-2xl bg-surface-card border border-border-subtle hover:border-border-active p-6 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300"
+          class="project-slide w-full min-w-full flex-shrink-0 snap-center rounded-2xl bg-surface-card border border-border-subtle hover:border-border-active overflow-hidden flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300"
           data-index={index}
         >
           <div>
-            <!-- Carátula / Artwork del proyecto -->
+            <!-- Carátula / Artwork del proyecto: Ocupa todo el ancho superior de la tarjeta de borde a borde -->
             {project.image && (
-              <div class="w-full aspect-[16/9] sm:aspect-[21/9] rounded-xl overflow-hidden bg-surface border border-border-subtle mb-6 relative group">
+              <div class="w-full aspect-[16/10] sm:aspect-[16/9] min-h-[240px] sm:min-h-[380px] bg-surface border-b border-border-subtle relative group overflow-hidden">
                 <img
                   id={project.imageLight ? `project-img-${project.id}` : undefined}
                   src={project.image}
                   alt={`Carátula de ${project.title}`}
-                  class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.02] pointer-events-none"
+                  class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.01]"
                   loading="lazy"
                   draggable="false"
                 />
                 {project.imageLight && (
-                  <div class="absolute bottom-3 right-3 flex items-center gap-1.5 bg-canvas/85 backdrop-blur-md border border-border-subtle rounded-lg px-2.5 py-1 text-[11px] font-mono text-muted shadow-md">
+                  <div class="absolute bottom-3 right-3 flex items-center gap-1.5 bg-canvas/90 backdrop-blur-md border border-border-subtle rounded-lg px-2.5 py-1 text-[11px] font-mono text-muted shadow-md">
                     <span class="text-subtle text-[10px]">TEMA:</span>
                     <button
                       type="button"
@@ -103,77 +103,80 @@ const projects = lang === 'en' ? enProjects : esProjects;
               </div>
             )}
 
-            <!-- Meta superior: Categoría y Badge -->
-            <div class="flex flex-wrap items-center justify-between gap-3 border-b border-border-subtle pb-4">
-              <span class="text-xs font-mono text-subtle uppercase tracking-wider">
-                {project.category}
-              </span>
-              <div class="flex items-center gap-2">
-                <span class="text-xs font-mono text-heading border border-border-subtle rounded-md px-2.5 py-0.5 bg-surface-hover font-medium">
-                  {project.badge}
+            <!-- Contenido con padding interno cómodo -->
+            <div class="p-6 sm:p-8">
+              <!-- Meta superior: Categoría y Badge -->
+              <div class="flex flex-wrap items-center justify-between gap-3 border-b border-border-subtle pb-4">
+                <span class="text-xs font-mono text-subtle uppercase tracking-wider">
+                  {project.category}
                 </span>
-                <span class="text-xs font-mono text-subtle">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
+                <div class="flex items-center gap-2">
+                  <span class="text-xs font-mono text-heading border border-border-subtle rounded-md px-2.5 py-0.5 bg-surface-hover font-medium">
+                    {project.badge}
+                  </span>
+                  <span class="text-xs font-mono text-subtle">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                </div>
               </div>
-            </div>
 
-            <!-- Título y Métricas -->
-            <div class="mt-5">
-              <div class="flex flex-wrap items-baseline justify-between gap-3">
-                <h3 class="text-2xl sm:text-3xl font-bold text-heading tracking-tight">
-                  {project.title}
-                </h3>
-                {project.url && (
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex items-center gap-1.5 text-xs font-mono text-accent hover:text-accent-hover hover:underline font-medium"
-                  >
-                    <span>{lang === 'en' ? 'Live Platform' : 'Visitar Plataforma'}</span>
-                    <span>↗</span>
-                  </a>
+              <!-- Título y Enlace directo (URL única y limpia sin duplicidades) -->
+              <div class="mt-5">
+                <div class="flex flex-wrap items-baseline justify-between gap-3">
+                  <h3 class="text-2xl sm:text-3xl font-bold text-heading tracking-tight">
+                    {project.title}
+                  </h3>
+                  {project.url && (
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-1.5 text-xs font-mono text-accent hover:text-accent-hover hover:underline font-medium break-all"
+                    >
+                      <span>{project.url.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span>
+                      <span class="text-sm">↗</span>
+                    </a>
+                  )}
+                </div>
+                {project.metrics && (
+                  <div class="mt-2 text-xs font-mono text-emerald-600 inline-flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    <span>{project.metrics}</span>
+                  </div>
                 )}
               </div>
-              {project.metrics && (
-                <div class="mt-2 text-xs font-mono text-emerald-600 inline-flex items-center gap-1.5">
-                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                  <span>{project.metrics}</span>
-                </div>
-              )}
-            </div>
 
-            <!-- Descripción narrativa -->
-            <p class="mt-4 text-sm sm:text-base text-muted leading-relaxed font-normal">
-              {project.description}
-            </p>
-
-            <!-- Sección de Impacto & Arquitectura (Diseño editorial limpio, sin caja genérica con línea lateral) -->
-            <div class="mt-6 pt-5 border-t border-border-subtle">
-              <div class="flex items-center gap-2 mb-2">
-                <span class="text-[11px] font-mono uppercase tracking-widest text-accent font-semibold">
-                  {t('projects.impact_label')}
-                </span>
-                <span class="text-subtle/40 font-mono text-xs">//</span>
-              </div>
-              <p class="text-sm text-body leading-relaxed font-normal">
-                {project.impact}
+              <!-- Descripción narrativa -->
+              <p class="mt-4 text-sm sm:text-base text-muted leading-relaxed font-normal">
+                {project.description}
               </p>
-            </div>
-          </div>
 
-          <!-- Tags de Tecnologías -->
-          <div class="mt-8 pt-5 border-t border-border-subtle">
-            <span class="text-[11px] font-mono uppercase tracking-wider text-subtle block mb-2.5 font-medium">
-              Tecnologías & Arquitectura:
-            </span>
-            <div class="flex flex-wrap gap-2">
-              {project.tags.map((tag) => (
-                <span class="text-xs font-mono text-body bg-surface border border-border-subtle px-3 py-1 rounded-md">
-                  {tag}
+              <!-- Sección de Impacto & Arquitectura -->
+              <div class="mt-6 pt-5 border-t border-border-subtle">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="text-[11px] font-mono uppercase tracking-widest text-accent font-semibold">
+                    {t('projects.impact_label')}
+                  </span>
+                  <span class="text-subtle/40 font-mono text-xs">//</span>
+                </div>
+                <p class="text-sm text-body leading-relaxed font-normal">
+                  {project.impact}
+                </p>
+              </div>
+
+              <!-- Tags de Tecnologías -->
+              <div class="mt-8 pt-5 border-t border-border-subtle">
+                <span class="text-[11px] font-mono uppercase tracking-wider text-subtle block mb-2.5 font-medium">
+                  Tecnologías & Arquitectura:
                 </span>
-              ))}
+                <div class="flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span class="text-xs font-mono text-body bg-surface border border-border-subtle px-3 py-1 rounded-md">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </article>
@@ -280,6 +283,11 @@ const projects = lang === 'en' ? enProjects : esProjects;
     let hasMoved = false;
 
     carousel.addEventListener('mousedown', (e: MouseEvent) => {
+      // Si el click fue sobre un enlace (a) o botón dentro de la tarjeta, no bloquear el evento
+      const target = e.target as HTMLElement | null;
+      if (target?.closest('a') || target?.closest('button')) {
+        return;
+      }
       isMouseDown = true;
       hasMoved = false;
       startX = e.clientX;

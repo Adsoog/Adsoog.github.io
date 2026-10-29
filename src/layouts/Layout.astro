@@ -4,7 +4,12 @@ import '../styles/global.css';
 import '@fontsource/inter/400.css';
 import '@fontsource/inter/500.css';
 import '@fontsource/inter/600.css';
+import '@fontsource/plus-jakarta-sans/400.css';
+import '@fontsource/plus-jakarta-sans/500.css';
+import '@fontsource/plus-jakarta-sans/600.css';
+import '@fontsource/plus-jakarta-sans/700.css';
 import { useTranslations, type Lang } from '../i18n/ui';
+import SideTreeColumns from '../components/ui/SideTreeColumns.astro';
 
 interface Props {
   title?: string;
@@ -77,9 +82,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://adso.is-
       style="background: radial-gradient(600px circle at var(--mouse-x, -1000px) var(--mouse-y, -1000px), var(--color-accent-spotlight, rgba(104, 107, 179, 0.08)), transparent 80%);"
     ></div>
 
-    <!-- Adornos sutiles a los costados (Líneas decorativas de ingeniería con gradiente) -->
-    <div class="pointer-events-none fixed top-0 left-0 h-full w-px bg-gradient-to-b from-transparent via-border-subtle/50 to-transparent hidden xl:block ml-6"></div>
-    <div class="pointer-events-none fixed top-0 right-0 h-full w-px bg-gradient-to-b from-transparent via-border-subtle/50 to-transparent hidden xl:block mr-6"></div>
+    <!-- Columnas arbóreas laterales (Cielo/Copa en la parte superior -> Raíces densas al bajar) -->
+    <SideTreeColumns />
 
     <div class="relative z-10 mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
       <div class="lg:flex lg:justify-between lg:gap-8">
