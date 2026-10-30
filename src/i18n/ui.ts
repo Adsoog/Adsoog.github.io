@@ -42,11 +42,11 @@ export const ui = {
     'experience.lang_title': 'Idiomas',
 
     'contact.section_title': 'Contacto',
-    'contact.title': '¿Tienes un proyecto, sistema o proceso por resolver?',
-    'contact.description': 'Estoy disponible para diseñar arquitecturas de backend, automatizar flujos operativos o construir productos digitales de principio a fin. Escríbeme directamente sin intermediarios:',
+    'contact.title': 'Siempre abierto a nuevos retos',
+    'contact.description': 'Desarrollo de nuevas cosas interesantes.',
     'contact.cta_wa': 'Escribir por WhatsApp',
     'contact.cta_email': 'Enviar correo',
-    'contact.wa_text': 'Hola Adso, vi tu portafolio y me gustaría conversar sobre un proyecto',
+    'contact.wa_text': 'Hola Adso, vi tu portafolio y me gustaría conversar',
   },
   en: {
     'meta.title': 'Adso Martín Obregón | Lead Software Engineer',
@@ -82,11 +82,11 @@ export const ui = {
     'experience.lang_title': 'Languages',
 
     'contact.section_title': 'Contact',
-    'contact.title': 'Have a project, system, or workflow to solve?',
-    'contact.description': 'Available for backend architecture design, operational automation, and end-to-end digital product engineering. Reach out directly:',
+    'contact.title': 'Always open to new challenges',
+    'contact.description': 'Developing new and interesting things.',
     'contact.cta_wa': 'Chat on WhatsApp',
     'contact.cta_email': 'Send an Email',
-    'contact.wa_text': 'Hello Adso, I saw your portfolio and would like to discuss a project',
+    'contact.wa_text': 'Hello Adso, I saw your portfolio and would like to connect',
   }
 } as const;
 
