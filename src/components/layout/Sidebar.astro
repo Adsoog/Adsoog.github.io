@@ -170,9 +170,14 @@ const socialLinks = [
     if (!sections.length || !navLinks.length) return;
 
     let currentActiveId = 'sobre-mi';
+    let isClickScrolling = false;
+    let clickScrollTimer = null;
 
     function activateSection(id, updateHash = true) {
       if (!id) return;
+      if (id === currentActiveId && document.querySelector(`.nav-link[data-section="${id}"].underline`)) {
+        return;
+      }
       currentActiveId = id;
 
       navLinks.forEach((link) => {
@@ -205,12 +210,17 @@ const socialLinks = [
       }
     }
 
-    // Activación instantánea al pulsar cualquier enlace de sección
+    // Activación instantánea al pulsar cualquier enlace (bloqueando el scroll listener durante el viaje para eliminar el parpadeo)
     navLinks.forEach((link) => {
       link.addEventListener('click', () => {
         const id = link.getAttribute('data-section');
         if (id) {
+          isClickScrolling = true;
           activateSection(id, true);
+          if (clickScrollTimer) clearTimeout(clickScrollTimer);
+          clickScrollTimer = setTimeout(() => {
+            isClickScrolling = false;
+          }, 850);
         }
       });
     });
@@ -244,6 +254,8 @@ const socialLinks = [
 
     let isScrolling = false;
     window.addEventListener('scroll', () => {
+      if (isClickScrolling) return; // Evita parpadeos mientras el navegador viaja al destino seleccionado
+
       if (!isScrolling) {
         window.requestAnimationFrame(() => {
           checkCurrentSection();
