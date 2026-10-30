@@ -7,23 +7,26 @@
       "summary": "Technical leadership in architecting, developing, and deploying custom enterprise ERPs and bespoke software for mission-critical operations.",
       "achievements": [
         "End-to-end development of enterprise management modules: purchase orders, multi-branch inventory control, automated billing, and treasury.",
+        "Engineered a mobile application extending the ERP's operational workflows and real-time data capture to field personnel.",
+        "Implemented a comprehensive vehicular fleet management module within the ERP integrating Traccar and GPS telemetry.",
         "IoT & hardware engineering: automated biometric time-tracking system integrating fingerprint sensors and mobile phone verification.",
         "Engineered automated bots that drastically cut repetitive manual workloads in administrative workflows.",
         "Complete re-engineering of data pipelines and business processes to maximize operational efficiency and throughput."
       ],
-      "tech": ["Python", "Django", "PostgreSQL", "IoT / Hardware", "Automation Bots", "Docker", "Nginx", "Linux"]
+      "tech": ["Python", "Django", "PostgreSQL", "Flutter", "Traccar", "GPS & Telemetry", "IoT / Hardware", "Automation Bots", "Docker", "Linux"]
     },
     {
       "period": "1 year",
       "role": "Software Developer",
       "company": "JP Ingeniería y Servicios",
-      "summary": "Developed proprietary ERP modules and bespoke automated tools tailored to corporate operational demands.",
+      "summary": "Developed proprietary ERP modules, bespoke automated tools, and administered operational IT infrastructure.",
       "achievements": [
         "Designed and programmed tailored ERP modules integrating project management, operations, and financial auditing.",
+        "Provided comprehensive technical support, preventive/corrective hardware maintenance, wired/wireless networking, and general IT systems administration to ensure continuous operation.",
         "Built automated background scripts and bots to streamline data processing and eliminate operational bottlenecks.",
         "Optimized relational database schemas and workflow pipelines ensuring strict transactional consistency."
       ],
-      "tech": ["Python", "PostgreSQL", "Bots & Scripts", "Web Services", "ERP Systems"]
+      "tech": ["Python", "PostgreSQL", "Bots & Scripts", "IT Support & Networking", "Hardware Maintenance", "ERP Systems"]
     }
   ],
   "education": [

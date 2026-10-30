@@ -7,23 +7,26 @@
       "summary": "Liderazgo técnico en el diseño, desarrollo y despliegue de ERPs integrales y software a medida para operaciones críticas de la empresa.",
       "achievements": [
         "Desarrollo completo de módulos de gestión empresarial: órdenes de compra, control exhaustivo de inventarios multisede, facturación y tesorería.",
+        "Desarrollo de aplicación móvil para extender el ERP y sus procesos operativos en tiempo real a usuarios y cuadrillas de campo.",
+        "Implementación del módulo de gestión y control de flotas vehiculares en el ERP utilizando Traccar y telemetría GPS.",
         "Implementación de soluciones IoT y hardware: sistema de marcaciones y control de asistencia automatizado con huella dactilar y validación vía teléfono celular.",
         "Desarrollo de bots de automatización operativa que redujeron drásticamente la carga laboral manual en tareas administrativas y repetitivas.",
         "Reingeniería integral de procesos y flujos de datos para optimizar la eficiencia y rendimiento operativo global de la empresa."
       ],
-      "tech": ["Python", "Django", "PostgreSQL", "IoT / Hardware", "Bots de Automatización", "Docker", "Nginx", "Linux"]
+      "tech": ["Python", "Django", "PostgreSQL", "Flutter", "Traccar", "GPS & Telemetría", "IoT / Hardware", "Bots de Automatización", "Docker", "Linux"]
     },
     {
       "period": "1 año",
       "role": "Desarrollador de Software",
       "company": "JP Ingeniería y Servicios",
-      "summary": "Desarrollo de ERPs propietarios y herramientas personalizadas adaptadas a las necesidades operativas de la compañía.",
+      "summary": "Desarrollo de ERPs propietarios, herramientas personalizadas y administración de infraestructura tecnológica operativa.",
       "achievements": [
         "Diseño y programación de módulos ERP a medida para la integración de operaciones, finanzas y control de proyectos.",
+        "Soporte técnico integral, mantenimiento preventivo y correctivo de equipos de cómputo, redes cableadas/WiFi y soporte TI en general para asegurar la continuidad operativa.",
         "Construcción de bots de automatización para agilizar la gestión de datos y eliminar cuellos de botella laborales.",
         "Optimización de flujos de trabajo e integración de bases de datos relacionales para garantizar integridad y consistencia operativa."
       ],
-      "tech": ["Python", "PostgreSQL", "Bots & Scripts", "Web Services", "Sistemas ERP"]
+      "tech": ["Python", "PostgreSQL", "Bots & Scripts", "Soporte TI & Redes", "Mantenimiento de Equipos", "Sistemas ERP"]
     }
   ],
   "education": [
