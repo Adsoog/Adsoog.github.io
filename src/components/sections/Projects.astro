@@ -73,10 +73,27 @@ const projects = lang === 'en' ? enProjects : esProjects;
                   id={project.imageLight ? `project-img-${project.id}` : undefined}
                   src={project.image}
                   alt={`Carátula de ${project.title}`}
-                  class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.01]"
+                  class={`w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.01] ${project.inDevelopment ? 'opacity-85 filter contrast-95' : ''}`}
                   loading="lazy"
                   draggable="false"
                 />
+                {project.inDevelopment && (
+                  <div class="absolute inset-0 bg-surface/60 backdrop-blur-[3px] flex flex-col items-center justify-center p-6 text-center select-none pointer-events-none">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-card/95 border border-border-subtle text-heading text-xs font-mono shadow-md">
+                      <svg class="w-3.5 h-3.5 text-amber-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                      </svg>
+                      <span class="font-medium tracking-wide">
+                        {lang === 'en' ? 'Staging / In Development' : 'En Desarrollo · Próximamente'}
+                      </span>
+                    </div>
+                    <span class="text-[11px] font-mono text-muted mt-2 max-w-xs">
+                      {lang === 'en' 
+                        ? 'Project in active finalization · URL temporarily inactive' 
+                        : 'Proyecto en fase final de desarrollo · Enlace temporalmente inactivo'}
+                    </span>
+                  </div>
+                )}
                 {project.imageLight && (
                   <div class="absolute bottom-3 right-3 flex items-center gap-1.5 bg-canvas/90 backdrop-blur-md border border-border-subtle rounded-lg px-2.5 py-1 text-[11px] font-mono text-muted shadow-md">
                     <span class="text-subtle text-[10px]">TEMA:</span>
@@ -127,20 +144,35 @@ const projects = lang === 'en' ? enProjects : esProjects;
                     {project.title}
                   </h3>
                   {project.url && (
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="inline-flex items-center gap-1.5 text-xs font-mono text-accent hover:text-accent-hover hover:underline font-medium break-all"
-                    >
-                      <span>{project.url.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span>
-                      <span class="text-sm">↗</span>
-                    </a>
+                    project.inDevelopment ? (
+                      <div
+                        class="inline-flex items-center gap-2 text-xs font-mono text-muted bg-surface border border-border-subtle rounded-md px-2.5 py-1 select-none"
+                        title={lang === 'en' ? 'Domain reserved · Temporarily inactive' : 'Dominio reservado · Temporalmente inactivo'}
+                      >
+                        <svg class="w-3 h-3 text-amber-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                        <span class="text-subtle">{project.url.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span>
+                        <span class="text-[10px] text-amber-600 dark:text-amber-400 bg-amber-500/10 border border-amber-500/20 px-1.5 py-0.5 rounded font-medium">
+                          {lang === 'en' ? 'Inactive' : 'Inactivo'}
+                        </span>
+                      </div>
+                    ) : (
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-1.5 text-xs font-mono text-accent hover:text-accent-hover hover:underline font-medium break-all"
+                      >
+                        <span>{project.url.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span>
+                        <span class="text-sm">↗</span>
+                      </a>
+                    )
                   )}
                 </div>
                 {project.metrics && (
-                  <div class="mt-2 text-xs font-mono text-emerald-600 inline-flex items-center gap-1.5">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  <div class={`mt-2 text-xs font-mono inline-flex items-center gap-1.5 ${project.inDevelopment ? 'text-amber-600 dark:text-amber-400' : 'text-emerald-600'}`}>
+                    <span class={`w-1.5 h-1.5 rounded-full ${project.inDevelopment ? 'bg-amber-500' : 'bg-emerald-500'}`}></span>
                     <span>{project.metrics}</span>
                   </div>
                 )}
