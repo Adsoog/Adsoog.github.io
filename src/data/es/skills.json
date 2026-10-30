@@ -2,10 +2,11 @@
   {
     "index": "01",
     "title": "Backend, Concurrencia & Arquitectura de Datos",
-    "summary": "Elijo cada tecnología según el problema a resolver: Django cuando se requiere un ERP empresarial a medida con modelado relacional profundo y seguridad probada; FastAPI para servicios y APIs ultrarrápidas; y Gin (Go) o WebSockets cuando la prioridad es la mensajería en tiempo real y la alta concurrencia.",
+    "summary": "Elijo cada tecnología según el problema a resolver: Django cuando se requiere un ERP empresarial a medida con modelado relacional profundo y seguridad probada; FastAPI y Flask para servicios y APIs ágiles; y Gin (Go) o WebSockets cuando la prioridad es la mensajería en tiempo real y la alta concurrencia.",
     "tools": [
       "Django & DRF",
-      "FastAPI & Pydantic",
+      "FastAPI",
+      "Flask",
       "Go (Gin)",
       "PostgreSQL & ORM",
       "WebSockets",
@@ -15,37 +16,38 @@
   {
     "index": "02",
     "title": "Infraestructura en Linux, Docker & Despliegue Real",
-    "summary": "Para arquitecturas con tareas asíncronas, colas de trabajo o múltiples servicios donde un hosting tradicional se queda corto, administro servidores Linux desde cero: todo containerizado y orquestado en Docker, protegido con firewalls, proxies inversos y correo transaccional.",
+    "summary": "Para arquitecturas con tareas asíncronas, colas de trabajo o múltiples servicios donde un hosting tradicional se queda corto, administro servidores Linux (con Ubuntu como distribución de preferencia): todo containerizado y orquestado en Docker, protegido con firewalls, proxies inversos y servicios cloud.",
     "tools": [
       "Docker & Docker Compose",
-      "Servidores Linux (Ubuntu)",
+      "Servidores Linux (Ubuntu de preferencia)",
       "Nginx & Reverse Proxy",
-      "Seguridad & Firewalls",
-      "AWS SES"
+      "AWS (Cloud, SES)",
+      "Seguridad & Firewalls"
     ]
   },
   {
     "index": "03",
-    "title": "Automatización de Procesos, Extracción & Datos con IA",
-    "summary": "Transformo procesos operativos manuales en flujos automáticos y medibles: bots desatendidos con Playwright para navegar y extraer datos de portales complejos, extensiones de Chrome (Manifest V3) y lectura estructurada de documentos integrando IA de forma rentable.",
+    "title": "Automatización de Procesos, Extracción & Suite Cloud",
+    "summary": "Transformo procesos operativos manuales en flujos automáticos y medibles: bots desatendidos con Playwright para navegar y extraer datos de portales complejos, extensiones de navegador personalizadas, integración con Google Cloud Console & Suite y lectura estructurada de documentos con IA.",
     "tools": [
       "Playwright",
-      "Chrome Extensions (Manifest V3)",
+      "Extensiones de Navegador",
+      "Google Cloud Console & Suite",
       "Google Gemini API & LLMs",
-      "Lectura & Parsing de Documentos",
-      "Google Maps API"
+      "Lectura & Parsing de Documentos"
     ]
   },
   {
     "index": "04",
-    "title": "Frontend de Alto Rendimiento, Mobile & IoT",
-    "summary": "En web priorizo interfaces directas y veloces con Astro, Tailwind CSS y HTMX sin sobrecarga innecesaria. En móvil desarrollo aplicaciones multiplataforma fluidas con Flutter publicadas en Google Play, además de conectar software a medida con hardware e IoT.",
+    "title": "Frontend Web & Desarrollo Multiplataforma (Mobile & IoT)",
+    "summary": "En web priorizo interfaces directas y veloces con Astro, Tailwind CSS y HTMX sin sobrecarga innecesaria. En móvil desarrollo aplicaciones multiplataforma fluidas con Flutter para Android e iOS (iPhone) publicadas en Google Play, además de conectar software a medida con hardware e IoT.",
     "tools": [
+      "Desarrollo Multiplataforma",
+      "Flutter (Android & iOS)",
+      "Google Play Console",
       "Astro",
       "Tailwind CSS",
       "HTMX",
-      "Flutter & Dart",
-      "Google Play Console",
       "Integración IoT"
     ]
   }

@@ -53,8 +53,8 @@
       "desc": "Administración de servidores Linux (Ubuntu), Docker, Nginx con SSL/TLS, hardening de seguridad y configuración de envíos masivos con AWS SES."
     },
     {
-      "title": "Chrome Extensions (Manifest V3) & Automatización",
-      "desc": "Creación de extensiones y pipelines desatendidos con Playwright para orquestación web, extracción de datos y optimización de tareas complejas."
+      "title": "Extensiones de Navegador & Automatización",
+      "desc": "Creación de extensiones de navegador y pipelines desatendidos con Playwright para orquestación web, extracción de datos y optimización de tareas complejas."
     }
   ],
   "languages": [

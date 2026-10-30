@@ -53,8 +53,8 @@
       "desc": "Management of Linux production servers (Ubuntu), Docker containers, Nginx reverse proxy with SSL/TLS hardening, and transactional email deliverability via AWS SES."
     },
     {
-      "title": "Chrome Extensions (Manifest V3) & Automation",
-      "desc": "Built browser extensions and unattended headless pipelines using Playwright for web orchestration, data extraction, and workflow automation."
+      "title": "Browser Extensions & Web Automation",
+      "desc": "Built custom browser extensions and unattended headless pipelines using Playwright for web orchestration, data extraction, and workflow automation."
     }
   ],
   "languages": [

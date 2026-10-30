@@ -2,10 +2,11 @@
   {
     "index": "01",
     "title": "Backend, Concurrency & Data Architecture",
-    "summary": "I choose each technology based on the concrete use case: Django for bespoke enterprise ERPs requiring deep relational modeling and proven security; FastAPI for ultra-fast APIs; and Gin (Go) or WebSockets when real-time messaging and high concurrency are critical.",
+    "summary": "I choose each technology based on the concrete use case: Django for bespoke enterprise ERPs requiring deep relational modeling and proven security; FastAPI and Flask for decoupled services and fast APIs; and Gin (Go) or WebSockets when real-time messaging and high concurrency are critical.",
     "tools": [
       "Django & DRF",
-      "FastAPI & Pydantic",
+      "FastAPI",
+      "Flask",
       "Go (Gin)",
       "PostgreSQL & ORM",
       "WebSockets",
@@ -15,37 +16,38 @@
   {
     "index": "02",
     "title": "Linux Infrastructure, Docker & Production Deployment",
-    "summary": "When traditional shared hosting falls short for asynchronous workers, task queues, or distributed services, I manage Linux servers from the ground up: everything containerized and orchestrated in Docker, hardened with firewalls, reverse proxies, and transactional email pipelines.",
+    "summary": "When traditional shared hosting falls short for asynchronous workers, task queues, or distributed services, I manage Linux servers from the ground up (with Ubuntu as preferred distribution): everything containerized and orchestrated in Docker, hardened with firewalls, reverse proxies, and cloud services.",
     "tools": [
       "Docker & Docker Compose",
-      "Linux Servers (Ubuntu)",
+      "Linux Servers (Ubuntu preferred)",
       "Nginx & Reverse Proxy",
-      "Firewall & Server Hardening",
-      "AWS SES"
+      "AWS (Cloud, SES)",
+      "Firewall & Server Hardening"
     ]
   },
   {
     "index": "03",
-    "title": "Process Automation, Scraping & AI Data Workflows",
-    "summary": "I turn manual operational processes into measurable automated workflows: unattended Playwright bots for complex web extraction, Chrome Extensions (Manifest V3), and cost-effective document reading and structuring powered by AI.",
+    "title": "Process Automation, Scraping & Cloud Suite",
+    "summary": "I turn manual operational processes into measurable automated workflows: unattended Playwright bots for complex web extraction, custom browser extensions, Google Cloud Console & Suite integration, and cost-effective document reading and structuring powered by AI.",
     "tools": [
       "Playwright",
-      "Chrome Extensions (Manifest V3)",
+      "Browser Extensions",
+      "Google Cloud Console & Suite",
       "Google Gemini API & LLMs",
-      "Document Reading & Parsing",
-      "Google Maps API"
+      "Document Reading & Parsing"
     ]
   },
   {
     "index": "04",
-    "title": "High-Performance Web, Mobile & IoT Integration",
-    "summary": "On the web I build fast, clean interfaces with Astro, Tailwind CSS, and HTMX without unnecessary overhead. On mobile I deliver fluid native experiences with Flutter published on Google Play, alongside custom hardware and IoT integrations.",
+    "title": "Web Frontend & Multiplatform Development (Mobile & IoT)",
+    "summary": "On the web I build fast, clean interfaces with Astro, Tailwind CSS, and HTMX without unnecessary overhead. On mobile I engineer fluid cross-platform applications with Flutter for Android and iOS (iPhone) published on Google Play, alongside custom hardware and IoT integrations.",
     "tools": [
+      "Multiplatform Development",
+      "Flutter (Android & iOS)",
+      "Google Play Console",
       "Astro",
       "Tailwind CSS",
       "HTMX",
-      "Flutter & Dart",
-      "Google Play Console",
       "IoT Hardware Integration"
     ]
   }
