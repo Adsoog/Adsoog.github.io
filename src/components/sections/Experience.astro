@@ -11,53 +11,56 @@ const { lang = 'es' } = Astro.props;
 const t = useTranslations(lang);
 
 const experienceData = lang === 'en' ? enExperience : esExperience;
-const { workExperience, education, credentials, languages } = experienceData;
+const { workExperience, education, languages } = experienceData;
 ---
 
+<!-- ============================================================== -->
+<!-- SECCIÓN 1: TRAYECTORIA PROFESIONAL                             -->
+<!-- ============================================================== -->
 <section id="trayectoria" class="mb-16 scroll-mt-24 lg:mb-24">
-  <!-- Mobile section header -->
-  <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-surface/90 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-    <h2 class="text-xs font-mono font-semibold uppercase tracking-widest text-muted">
-      {t('experience.section_title')}
-    </h2>
+  <div class="sticky top-0 z-20 -mx-6 mb-6 w-screen bg-surface/90 px-6 py-4 backdrop-blur md:-mx-12 md:px-12 lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:bg-transparent">
+    <div class="flex items-center justify-between gap-2">
+      <h2 class="text-xs font-mono font-semibold uppercase tracking-widest text-muted">
+        {t('experience.section_title')}
+      </h2>
+      <span class="text-xs font-mono text-muted px-2.5 py-0.5 rounded-md bg-surface-card border border-border-subtle">
+        {t('experience.work_badge')}
+      </span>
+    </div>
   </div>
 
-  <div class="space-y-12">
-    <!-- Work Experience -->
-    <div class="p-5 sm:p-6 rounded-xl hover:bg-surface-hover/60 transition-all duration-200">
-      <div class="flex items-center justify-between gap-2 mb-6">
-        <h3 class="text-xs font-mono uppercase tracking-wider text-muted font-semibold">
-          {t('experience.work_title')}
-        </h3>
-        <span class="text-xs font-mono text-muted px-2 py-0.5 rounded bg-surface border border-border-subtle">
-          {t('experience.badge_role')}
-        </span>
-      </div>
+  <!-- Un único bloque cohesivo para la experiencia laboral -->
+  <div class="rounded-2xl bg-surface-card border border-border-subtle shadow-sm divide-y divide-border-subtle overflow-hidden">
+    {workExperience.map((job, idx) => (
+      <div class="p-5 sm:p-7 hover:bg-surface-hover/40 transition-colors duration-200">
+        <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4">
+          <span class="text-xs font-mono font-semibold text-accent shrink-0">
+            {String(idx + 1).padStart(2, '0')}
+          </span>
 
-      <div class="space-y-8">
-        {workExperience.map((job) => (
-          <div class="space-y-3 border-l-2 border-border-active pl-4 sm:pl-5">
-            <div class="flex flex-wrap items-baseline justify-between gap-1">
-              <h4 class="text-sm sm:text-base font-semibold text-heading">
-                {job.role}
-              </h4>
-              <span class="text-xs font-mono text-muted font-medium">
+          <div class="space-y-3 flex-1">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <div>
+                <h3 class="text-sm sm:text-base font-semibold text-heading">
+                  {job.role}
+                </h3>
+                <div class="text-xs font-medium text-accent mt-0.5">
+                  {job.company}
+                </div>
+              </div>
+              <span class="text-xs font-mono text-muted bg-surface border border-border-subtle/80 px-2.5 py-0.5 rounded-md">
                 {job.period}
               </span>
-            </div>
-            
-            <div class="text-xs font-medium text-body">
-              {job.company}
             </div>
 
             <p class="text-xs sm:text-sm text-muted leading-relaxed">
               {job.summary}
             </p>
 
-            <ul class="space-y-1.5 pt-1">
+            <ul class="space-y-1.5 pt-0.5">
               {job.achievements.map((item) => (
-                <li class="text-xs text-muted leading-relaxed flex items-start gap-2">
-                  <span class="text-subtle mt-0.5">•</span>
+                <li class="text-xs sm:text-[13px] text-muted leading-relaxed flex items-start gap-2.5">
+                  <span class="text-accent mt-0.5">•</span>
                   <span>{item}</span>
                 </li>
               ))}
@@ -65,82 +68,76 @@ const { workExperience, education, credentials, languages } = experienceData;
 
             <div class="flex flex-wrap gap-1.5 pt-2">
               {job.tech.map((tItem) => (
-                <span class="text-[11px] font-mono text-muted bg-surface-card border border-border-subtle/50 px-2 py-0.5 rounded">
+                <span class="text-[11px] font-mono text-body bg-surface border border-border-subtle/80 px-2.5 py-0.5 rounded-md">
                   {tItem}
                 </span>
               ))}
             </div>
           </div>
-        ))}
+        </div>
       </div>
-    </div>
+    ))}
+  </div>
+</section>
 
-    <!-- Academic Education -->
-    <div class="p-5 sm:p-6 rounded-xl hover:bg-surface-hover/60 transition-all duration-200">
-      <h3 class="text-xs font-mono uppercase tracking-wider text-muted mb-6 font-semibold">
-        {t('experience.edu_title')}
-      </h3>
+<!-- ============================================================== -->
+<!-- SECCIÓN 2: EDUCACIÓN & IDIOMAS                                 -->
+<!-- ============================================================== -->
+<section id="educacion" class="mb-16 scroll-mt-24 lg:mb-24">
+  <div class="sticky top-0 z-20 -mx-6 mb-6 w-screen bg-surface/90 px-6 py-4 backdrop-blur md:-mx-12 md:px-12 lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:bg-transparent">
+    <h2 class="text-xs font-mono font-semibold uppercase tracking-widest text-muted">
+      {t('experience.edu_section_title')}
+    </h2>
+  </div>
 
-      <div class="space-y-6">
-        {education.map((item) => (
-          <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-4">
-            <div class="sm:col-span-4 text-xs font-mono text-muted pt-0.5">
-              {item.period}
-            </div>
-            <div class="sm:col-span-8">
-              <h4 class="text-sm font-semibold text-heading">
-                {item.degree}
-              </h4>
-              <div class="text-xs text-body font-medium mb-1">
-                {item.institution}
+  <!-- Un único bloque cohesivo para formación académica + idiomas -->
+  <div class="rounded-2xl bg-surface-card border border-border-subtle shadow-sm divide-y divide-border-subtle overflow-hidden">
+    {education.map((item, idx) => (
+      <div class="p-5 sm:p-7 hover:bg-surface-hover/40 transition-colors duration-200">
+        <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4">
+          <span class="text-xs font-mono font-semibold text-accent shrink-0">
+            {String(idx + 1).padStart(2, '0')}
+          </span>
+
+          <div class="space-y-2 flex-1">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <div>
+                <h3 class="text-sm sm:text-base font-semibold text-heading">
+                  {item.degree}
+                </h3>
+                <div class="text-xs font-medium text-body mt-0.5">
+                  {item.institution}
+                </div>
               </div>
-              <p class="text-xs text-muted leading-relaxed">
-                {item.detail}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-
-    <!-- Credentials Section -->
-    <div class="p-5 sm:p-6 rounded-xl hover:bg-surface-hover/60 transition-all duration-200">
-      <h3 class="text-xs font-mono uppercase tracking-wider text-muted mb-6 font-semibold">
-        {t('experience.cred_title')}
-      </h3>
-
-      <div class="space-y-3.5">
-        {credentials.map((cred) => (
-          <div class="p-3.5 rounded-lg bg-surface-card/60 border border-border-subtle/70">
-            <h4 class="text-xs font-semibold text-heading mb-1">
-              {cred.title}
-            </h4>
-            <p class="text-xs text-muted leading-relaxed">
-              {cred.desc}
-            </p>
-          </div>
-        ))}
-      </div>
-    </div>
-
-    <!-- Languages Section -->
-    <div class="p-5 sm:p-6 rounded-xl hover:bg-surface-hover/60 transition-all duration-200">
-      <h3 class="text-xs font-mono uppercase tracking-wider text-muted mb-4 font-semibold">
-        {t('experience.lang_title')}
-      </h3>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        {languages.map((langItem) => (
-          <div class="p-3 rounded-lg bg-surface-card/50 border border-border-subtle/60">
-            <div class="flex items-center justify-between mb-1">
-              <span class="text-xs font-semibold text-heading">{langItem.name}</span>
-              <span class="text-[10px] font-mono text-body px-1.5 py-0.5 rounded bg-surface border border-border-subtle/50">
-                {langItem.level}
+              <span class="text-xs font-mono text-muted bg-surface border border-border-subtle/80 px-2.5 py-0.5 rounded-md">
+                {item.period}
               </span>
             </div>
-            <p class="text-[11px] text-muted leading-tight">{langItem.desc}</p>
+
+            <p class="text-xs sm:text-sm text-muted leading-relaxed">
+              {item.detail}
+            </p>
           </div>
-        ))}
+        </div>
+      </div>
+    ))}
+
+    <!-- Fila integrada de Idiomas dentro del bloque de Educación -->
+    <div class="p-5 sm:p-7 bg-surface/40">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <span class="text-xs font-mono font-semibold uppercase tracking-wider text-muted shrink-0">
+          {t('experience.lang_title')}
+        </span>
+
+        <div class="flex flex-wrap items-center gap-2.5">
+          {languages.map((langItem) => (
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-card border border-border-subtle text-xs">
+              <span class="font-semibold text-heading">{langItem.name}</span>
+              <span class="text-subtle">·</span>
+              <span class="font-mono text-[11px] text-accent">{langItem.level}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </div>

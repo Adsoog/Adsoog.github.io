@@ -14,41 +14,40 @@ const skillsData = lang === 'en' ? enSkills : esSkills;
 ---
 
 <section id="habilidades" class="mb-16 scroll-mt-24 lg:mb-24">
-  <!-- Mobile section header -->
-  <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-surface/90 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+  <!-- Header de sección -->
+  <div class="sticky top-0 z-20 -mx-6 mb-6 w-screen bg-surface/90 px-6 py-4 backdrop-blur md:-mx-12 md:px-12 lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:bg-transparent">
     <h2 class="text-xs font-mono font-semibold uppercase tracking-widest text-muted">
       {t('skills.section_title')}
     </h2>
   </div>
 
-  <div class="space-y-8">
-    {skillsData.map((category) => (
-      <div class="p-5 sm:p-6 rounded-xl hover:bg-surface-hover/60 transition-all duration-200">
-        <div class="mb-4">
-          <h3 class="text-base font-semibold text-heading">
-            {category.category}
-          </h3>
-          <p class="text-xs text-subtle mt-1">
-            {category.description}
-          </p>
-        </div>
+  <!-- Un único bloque cohesivo basado en los 4 pilares de trabajo -->
+  <div class="rounded-2xl bg-surface-card border border-border-subtle shadow-sm divide-y divide-border-subtle overflow-hidden">
+    {skillsData.map((pillar) => (
+      <div class="p-5 sm:p-7 hover:bg-surface-hover/40 transition-colors duration-200">
+        <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4">
+          <span class="text-xs font-mono font-semibold text-accent shrink-0">
+            {pillar.index}
+          </span>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-          {category.skills.map((skill) => (
-            <div class="p-2.5 rounded-lg bg-surface-card/60 border border-border-subtle/70 flex items-center justify-between gap-2">
-              <div>
-                <div class="text-xs font-medium text-body">
-                  {skill.name}
-                </div>
-                <div class="text-[11px] text-muted font-mono">
-                  {skill.detail}
-                </div>
-              </div>
-              <span class="shrink-0 text-[10px] font-mono text-muted px-1.5 py-0.5 rounded bg-surface border border-border-subtle/50">
-                {skill.level}
-              </span>
+          <div class="space-y-2.5 flex-1">
+            <h3 class="text-sm sm:text-base font-semibold text-heading">
+              {pillar.title}
+            </h3>
+
+            <p class="text-xs sm:text-sm text-muted leading-relaxed">
+              {pillar.summary}
+            </p>
+
+            <!-- Herramientas integradas con contexto, sin cajitas sueltas ni niveles artificiales -->
+            <div class="flex flex-wrap gap-1.5 pt-1.5">
+              {pillar.tools.map((tool) => (
+                <span class="text-[11px] font-mono text-body bg-surface border border-border-subtle/80 px-2.5 py-0.5 rounded-md">
+                  {tool}
+                </span>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     ))}

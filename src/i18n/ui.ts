@@ -16,10 +16,10 @@ export const ui = {
     'nav.projects': 'PROYECTOS',
     'nav.skills': 'HABILIDADES',
     'nav.experience': 'TRAYECTORIA',
+    'nav.education': 'EDUCACIÓN',
     'nav.contact': 'CONTACTO',
 
     'sidebar.tagline': 'Lead Software Engineer',
-    'sidebar.status': 'Disponible para nuevos desafíos',
 
     'about.section_title': 'Sobre Mí',
     'about.lead': 'Lead Software Engineer especializado en arquitecturas de backend escalables, automatización y obtención de datos. Diseño herramientas y productos digitales que resuelven problemas reales y optimizan procesos, adaptándome a cualquier reto tecnológico para entregar soluciones eficientes.',
@@ -32,20 +32,21 @@ export const ui = {
     'projects.section_title': 'Proyectos',
     'projects.impact_label': 'Impacto y Resultados',
     'projects.lab_label': 'Enfoque de Ingeniería',
+    'projects.tech_label': 'Tecnologías & Arquitectura',
 
     'skills.section_title': 'Habilidades',
 
-    'experience.section_title': 'Trayectoria',
-    'experience.work_title': 'Experiencia Laboral (3 Años Profesionales)',
-    'experience.badge_role': 'Lead Software Engineer',
-    'experience.edu_title': 'Formación Académica',
-    'experience.cred_title': 'Credenciales & Especialidades',
+    'experience.section_title': 'Trayectoria Profesional',
+    'experience.work_badge': '3 Años de Experiencia',
+    'experience.edu_section_title': 'Educación',
     'experience.lang_title': 'Idiomas',
 
     'contact.section_title': 'Contacto',
-    'contact.title': 'Contacto Directo',
-    'contact.description': 'Disponible para nuevas oportunidades, diseño de arquitectura de backend, automatizaciones e ingeniería de software. Escríbeme directamente por cualquiera de estos canales:',
-    'contact.wa_text': 'Hola Adso, vi tu portfolio y me gustaría conversar',
+    'contact.title': '¿Tienes un proyecto, sistema o proceso por resolver?',
+    'contact.description': 'Estoy disponible para diseñar arquitecturas de backend, automatizar flujos operativos o construir productos digitales de principio a fin. Escríbeme directamente sin intermediarios:',
+    'contact.cta_wa': 'Escribir por WhatsApp',
+    'contact.cta_email': 'Enviar correo',
+    'contact.wa_text': 'Hola Adso, vi tu portafolio y me gustaría conversar sobre un proyecto',
   },
   en: {
     'meta.title': 'Adso Martín Obregón | Lead Software Engineer',
@@ -55,10 +56,10 @@ export const ui = {
     'nav.projects': 'PROJECTS',
     'nav.skills': 'SKILLS',
     'nav.experience': 'EXPERIENCE',
+    'nav.education': 'EDUCATION',
     'nav.contact': 'CONTACT',
 
     'sidebar.tagline': 'Lead Software Engineer',
-    'sidebar.status': 'Available for new opportunities',
 
     'about.section_title': 'About Me',
     'about.lead': 'Lead Software Engineer specializing in scalable backend architectures, process automation, and data acquisition. I design digital tools and products that solve real-world challenges and optimize workflows, adapting to any technical requirement to deliver robust solutions.',
@@ -71,20 +72,21 @@ export const ui = {
     'projects.section_title': 'Projects',
     'projects.impact_label': 'Impact & Results',
     'projects.lab_label': 'Engineering Focus',
+    'projects.tech_label': 'Technologies & Architecture',
 
     'skills.section_title': 'Skills',
 
-    'experience.section_title': 'Experience',
-    'experience.work_title': 'Work Experience (3 Professional Years)',
-    'experience.badge_role': 'Lead Software Engineer',
-    'experience.edu_title': 'Education',
-    'experience.cred_title': 'Credentials & Specializations',
+    'experience.section_title': 'Work Experience',
+    'experience.work_badge': '3 Professional Years',
+    'experience.edu_section_title': 'Education',
     'experience.lang_title': 'Languages',
 
     'contact.section_title': 'Contact',
-    'contact.title': 'Direct Contact',
-    'contact.description': 'Available for new challenges, backend architecture design, automation systems, and high-impact software engineering. Reach out directly through any of these channels:',
-    'contact.wa_text': 'Hello Adso, I came across your portfolio and would like to connect',
+    'contact.title': 'Have a project, system, or workflow to solve?',
+    'contact.description': 'Available for backend architecture design, operational automation, and end-to-end digital product engineering. Reach out directly:',
+    'contact.cta_wa': 'Chat on WhatsApp',
+    'contact.cta_email': 'Send an Email',
+    'contact.wa_text': 'Hello Adso, I saw your portfolio and would like to discuss a project',
   }
 } as const;
 

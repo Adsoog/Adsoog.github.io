@@ -9,69 +9,103 @@ const { lang = 'es' } = Astro.props;
 const t = useTranslations(lang);
 const currentYear = new Date().getFullYear();
 
+const waText = encodeURIComponent(t('contact.wa_text'));
+
 const contactChannels = [
-  {
-    label: 'Blog',
-    value: 'unsaid.amostudio.online',
-    href: 'https://unsaid.amostudio.online/',
-    external: true,
-    icon: 'book'
-  },
   {
     label: lang === 'en' ? 'Email' : 'Correo',
     value: 'iadso.ao@gmail.com',
+    hint: lang === 'en' ? 'Direct inbox' : 'Bandeja directa',
     href: 'mailto:iadso.ao@gmail.com',
     external: false,
     icon: 'mail'
   },
   {
-    label: lang === 'en' ? 'Phone' : 'Teléfono',
+    label: lang === 'en' ? 'Phone / WA' : 'Teléfono / WA',
     value: '+51 983 016 855',
-    href: 'tel:+51983016855',
-    external: false,
+    hint: lang === 'en' ? 'Calls & WhatsApp' : 'Llamadas y WhatsApp',
+    href: `https://wa.me/51983016855?text=${waText}`,
+    external: true,
     icon: 'phone'
   },
   {
     label: 'GitHub',
     value: 'github.com/Adsoog',
+    hint: lang === 'en' ? 'Code & repositories' : 'Código y repositorios',
     href: 'https://github.com/Adsoog',
     external: true,
     icon: 'github'
+  },
+  {
+    label: 'Blog',
+    value: 'unsaid.amostudio.online',
+    hint: lang === 'en' ? 'Personal essays & notes' : 'Ensayos y publicación personal',
+    href: 'https://unsaid.amostudio.online/',
+    external: true,
+    icon: 'book'
   }
 ];
 ---
 
 <section id="contacto" class="mb-16 scroll-mt-24 lg:mb-24 pb-20">
-  <!-- Mobile section header -->
-  <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-surface/90 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+  <!-- Header de sección consistente con el resto del portafolio -->
+  <div class="sticky top-0 z-20 -mx-6 mb-6 w-screen bg-surface/90 px-6 py-4 backdrop-blur md:-mx-12 md:px-12 lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:bg-transparent">
     <h2 class="text-xs font-mono font-semibold uppercase tracking-widest text-muted">
       {t('contact.section_title')}
     </h2>
   </div>
 
-  <div class="space-y-6">
-    <div class="p-5 sm:p-6">
-      <h3 class="text-lg font-semibold text-heading mb-2">
-        {t('contact.title')}
-      </h3>
-      <p class="text-sm text-muted leading-relaxed max-w-xl">
-        {t('contact.description')}
-      </p>
+  <!-- Bloque unificado de Contacto -->
+  <div class="rounded-2xl bg-surface-card border border-border-subtle shadow-sm divide-y divide-border-subtle overflow-hidden">
+    <!-- Cabecera con llamada a la acción directa -->
+    <div class="p-6 sm:p-8 space-y-5">
+      <div class="space-y-2">
+        <h3 class="text-base sm:text-lg font-semibold text-heading">
+          {t('contact.title')}
+        </h3>
+        <p class="text-xs sm:text-sm text-muted leading-relaxed max-w-xl">
+          {t('contact.description')}
+        </p>
+      </div>
+
+      <!-- Botones rápidos de acción directa -->
+      <div class="flex flex-wrap items-center gap-3 pt-1">
+        <a
+          href={`https://wa.me/51983016855?text=${waText}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-heading text-surface-card text-xs font-medium hover:bg-accent transition-colors duration-200 shadow-sm"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+          </svg>
+          <span>{t('contact.cta_wa')}</span>
+        </a>
+
+        <a
+          href="mailto:iadso.ao@gmail.com"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-surface hover:bg-surface-hover text-heading border border-border-subtle hover:border-border-active text-xs font-medium transition-colors duration-200"
+        >
+          <svg class="w-4 h-4 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          <span>{t('contact.cta_email')}</span>
+        </a>
+      </div>
     </div>
 
-    <!-- Lista limpia y unificada con iconos SVG nativos -->
-    <ul class="divide-y divide-border-subtle/50 border-y border-border-subtle/50">
+    <!-- Lista de canales integrada dentro de la misma tarjeta -->
+    <ul class="divide-y divide-border-subtle">
       {contactChannels.map((item) => (
         <li>
           <a
             href={item.href}
             target={item.external ? "_blank" : undefined}
             rel={item.external ? "noopener noreferrer" : undefined}
-            class="group flex items-center justify-between py-4 px-5 sm:px-6 hover:bg-surface-hover/50 transition-colors duration-150"
+            class="group flex items-center justify-between py-4 px-6 sm:px-8 hover:bg-surface-hover/50 transition-colors duration-150"
           >
-            <div class="flex items-center gap-3.5">
-              <!-- Iconos SVG limpios y nativos sin dependencias externas -->
-              <span class="text-subtle group-hover:text-heading transition-colors">
+            <div class="flex items-center gap-3.5 min-w-0">
+              <span class="p-2 rounded-lg bg-surface border border-border-subtle/80 text-muted group-hover:text-accent group-hover:border-border-active/50 transition-colors shrink-0">
                 {item.icon === 'book' && (
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
@@ -94,26 +128,34 @@ const contactChannels = [
                 )}
               </span>
 
-              <span class="text-xs font-mono uppercase tracking-wider text-subtle group-hover:text-muted transition-colors w-20">
-                {item.label}
-              </span>
-
-              <span class="text-sm font-medium text-body group-hover:text-heading transition-colors">
-                {item.value}
-              </span>
+              <div class="min-w-0">
+                <div class="flex items-center gap-2">
+                  <span class="text-xs font-mono uppercase tracking-wider text-subtle">
+                    {item.label}
+                  </span>
+                  <span class="hidden sm:inline text-subtle/40">·</span>
+                  <span class="hidden sm:inline text-xs text-muted">
+                    {item.hint}
+                  </span>
+                </div>
+                <div class="text-sm font-medium text-heading group-hover:text-accent transition-colors truncate">
+                  {item.value}
+                </div>
+              </div>
             </div>
 
-            <span class="text-xs font-mono text-subtle group-hover:text-heading group-hover:translate-x-1 transition-all duration-150">
+            <span class="text-xs font-mono text-subtle group-hover:text-heading group-hover:translate-x-1 transition-all duration-150 shrink-0 ml-3">
               →
             </span>
           </a>
         </li>
       ))}
     </ul>
+  </div>
 
-    <div class="pt-8 px-5 sm:px-6 text-xs font-mono text-subtle flex flex-wrap items-center justify-between gap-4">
-      <div>Adso Martín Obregón Gutiérrez · {currentYear}</div>
-      <div>{t('contact.built_with')}</div>
-    </div>
+  <!-- Pie de página minimalista -->
+  <div class="pt-8 px-2 text-xs font-mono text-subtle flex flex-wrap items-center justify-between gap-4">
+    <div>Adso Martín Obregón Gutiérrez · {currentYear}</div>
+    <div>Lead Software Engineer</div>
   </div>
 </section>
