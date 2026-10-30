@@ -37,14 +37,14 @@ const socialLinks = [
   </a>
 
   <!-- Track de navegación horizontal para saltar de sección -->
-  <nav class="flex-1 overflow-x-auto scrollbar-none py-0.5 mx-1" aria-label="Navegación móvil">
-    <ul class="flex items-center gap-1 mobile-nav-track">
+  <nav class="flex-1 overflow-x-auto scrollbar-none py-1 mx-1" aria-label="Navegación móvil">
+    <ul class="flex items-center gap-2.5 mobile-nav-track">
       {navItems.map((item) => (
         <li>
           <a
             href={`#${item.id}`}
             data-section={item.id}
-            class="nav-link whitespace-nowrap text-[11px] font-mono uppercase tracking-wider px-2 py-1 rounded-md text-subtle hover:text-heading hover:bg-surface-hover/60 transition-all duration-150 inline-block"
+            class="nav-link whitespace-nowrap text-[11px] font-mono uppercase tracking-wider py-1 text-subtle hover:text-heading transition-colors inline-block"
           >
             {item.label}
           </a>
@@ -181,18 +181,14 @@ const socialLinks = [
 
         if (section === id) {
           link.classList.remove('text-subtle');
-          link.classList.add('text-heading', 'font-semibold');
+          link.classList.add('text-heading', 'font-bold', 'underline', 'underline-offset-4', 'decoration-2', 'decoration-heading');
           if (isMobilePill) {
-            link.classList.add('bg-surface-hover', 'border', 'border-border-active/60');
             link.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
           } else {
             link.classList.add('translate-x-1');
           }
         } else {
-          link.classList.remove('text-heading', 'font-semibold', 'translate-x-1');
-          if (isMobilePill) {
-            link.classList.remove('bg-surface-hover', 'border', 'border-border-active/60');
-          }
+          link.classList.remove('text-heading', 'font-bold', 'underline', 'underline-offset-4', 'decoration-2', 'decoration-heading', 'translate-x-1');
           link.classList.add('text-subtle');
         }
       });
@@ -209,48 +205,51 @@ const socialLinks = [
       }
     }
 
-    const observerOptions = {
-      root: null,
-      rootMargin: '-15% 0px -70% 0px',
-      threshold: 0
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
-
-      // Si estamos en la parte superior, forzamos sobre-mi y limpiamos el hash
-      if (scrollY < 120) {
-        activateSection('sobre-mi', true);
-        return;
-      }
-
-      // Si estamos al final de la página, forzamos contacto
-      const isAtBottom = window.innerHeight + scrollY >= document.documentElement.scrollHeight - 70;
-      if (isAtBottom) {
-        activateSection(sections[sections.length - 1].getAttribute('id'), true);
-        return;
-      }
-
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
+    // Activación instantánea al pulsar cualquier enlace de sección
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        const id = link.getAttribute('data-section');
+        if (id) {
           activateSection(id, true);
         }
       });
-    }, observerOptions);
+    });
 
-    sections.forEach((section) => observer.observe(section));
-
-    // Scroll listener para cambios inmediatos en el top o fondo
-    window.addEventListener('scroll', () => {
+    // Detección matemática precisa de la sección en viewport (para cambios entre Trayectoria y Educación)
+    function checkCurrentSection() {
       const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+
       if (scrollY < 120) {
         activateSection('sobre-mi', true);
         return;
       }
+
       const isAtBottom = window.innerHeight + scrollY >= document.documentElement.scrollHeight - 70;
       if (isAtBottom) {
         activateSection(sections[sections.length - 1].getAttribute('id'), true);
+        return;
+      }
+
+      // Encontrar la sección cuyo encabezado/cuerpo está activo en el tercio superior de la pantalla
+      let activeSectionId = sections[0].getAttribute('id');
+      for (const section of sections) {
+        const rect = section.getBoundingClientRect();
+        // Si el inicio de la sección está cerca del área visible (debajo del header móvil)
+        if (rect.top <= 200 && rect.bottom >= 80) {
+          activeSectionId = section.getAttribute('id');
+        }
+      }
+      activateSection(activeSectionId, true);
+    }
+
+    let isScrolling = false;
+    window.addEventListener('scroll', () => {
+      if (!isScrolling) {
+        window.requestAnimationFrame(() => {
+          checkCurrentSection();
+          isScrolling = false;
+        });
+        isScrolling = true;
       }
     }, { passive: true });
 
@@ -263,13 +262,15 @@ const socialLinks = [
         localStorage.setItem('preferred_lang', targetLang);
 
         const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
-        // Si el usuario está cerca de la parte superior (< 150px), NO usar hash
         const isAtTop = scrollY < 150;
         const targetHash = isAtTop ? '' : (currentActiveId && currentActiveId !== 'sobre-mi' ? '#' + currentActiveId : '');
         const targetBase = targetLang === 'en' ? '/en' : '/';
         window.location.href = targetBase + targetHash;
       });
     });
+
+    // Chequeo inicial
+    checkCurrentSection();
   }
 
   // Soporta navegación SPA con ClientRouter y carga inicial

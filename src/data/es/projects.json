@@ -25,7 +25,7 @@
     "description": "Espacio editorial y blog personal independiente ('Lo que no dije') con arquitectura Zero-JS ultra-rápida en Astro SSG logrando 100/100 en Google Lighthouse. Incorpora Astro ClientRouter (View Transitions API) para navegación fluida tipo SPA donde la barra lateral persiste (transition:persist) mientras conmuta la columna de lectura. Gestiona contenidos mediante Astro Content Collections con esquemas Zod, relatos enriquecidos con MDX, sindicación automática en /rss.xml y una paleta cálida editorial 'Tono Papel' diseñada con Tailwind CSS v4 y @tailwindcss/typography.",
     "impact": "Une el diseño tipográfico editorial clásico con ingeniería web de máximo rendimiento: cero JavaScript innecesario en el cliente, tipado estricto en tiempo de compilación y transiciones fluidas e instantáneas.",
     "tags": ["Astro", "Tailwind CSS v4", "Content Collections (Zod)", "MDX", "ClientRouter (SPA)", "RSS Feed"],
-    "metrics": "unsaid.amostudio.online · 100/100 Lighthouse & Zero-JS",
+    "metrics": "100/100 Google Lighthouse · Zero-JS",
     "featured": true,
     "icon": "book-open"
   },
@@ -56,7 +56,7 @@
     "description": "Suite de automatización compuesta por una extensión de navegador (Manifest V3) y una plataforma web que, junto con Playwright e IA, permite a los usuarios automatizar la navegación, extracción de datos y ejecución de acciones desatendidas en sitios web complejos.",
     "impact": "Elimina horas de tareas manuales repetitivas en el navegador, permitiendo crear flujos de scraping y operaciones automatizadas con un solo clic.",
     "tags": ["Python", "Playwright", "Chrome Extension (Manifest V3)", "IA/LLMs", "FastAPI"],
-    "metrics": "crawler.amostudio.online · Próximamente en producción",
+    "metrics": "Automatización desatendida · En desarrollo",
     "featured": true,
     "icon": "bot"
   },
@@ -72,7 +72,7 @@
     "description": "Aplicación móvil multiplataforma desarrollada en Flutter con backend en Django para la gestión integral de eventos y cabinas de video giratorias 360°. Incluye captura dinámica, inserción de música, efectos visuales y marcos personalizados para imágenes y video.",
     "impact": "Permite procesar y entregar clips de video personalizados a los asistentes de eventos al instante a través de un flujo cloud de entrega rápida.",
     "tags": ["Flutter", "Django", "Python", "Media Processing", "Event Logistics"],
-    "metrics": "k360.amostudio.online · Próximamente en producción",
+    "metrics": "Pipeline multimedia 360° · En desarrollo",
     "featured": true,
     "icon": "smartphone"
   },
@@ -87,7 +87,7 @@
     "description": "Plataforma oficial y técnica de metrología de libre acceso para verificación de mediciones fisicoquímicas y exportación de matrices normativas. Desarrollada con un backend de alta velocidad en FastAPI, implementa modelos matemáticos rigurosos y las ecuaciones de Benson & Krause para el cálculo y compensación de solubilidad de oxígeno disuelto en función de temperatura, presión atmosférica y salinidad.",
     "impact": "Facilita a laboratorios, ingenieros y empresas la validación y calibración inmediata de parámetros fisicoquímicos (Oxígeno Disuelto, pH, Conductividad Eléctrica) con máxima precisión algorítmica y cero fricción técnica.",
     "tags": ["FastAPI", "Python", "Benson & Krause", "Oxígeno Disuelto", "Metrología", "Calibración"],
-    "metrics": "check.lojustoapp.com · Cálculos de Oxígeno Disuelto",
+    "metrics": "Cálculos de Oxígeno Disuelto · Validación Metrológica",
     "featured": true,
     "icon": "gauge"
   },

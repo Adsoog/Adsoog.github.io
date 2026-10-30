@@ -68,7 +68,7 @@ const projects = lang === 'en' ? enProjects : esProjects;
           <div>
             <!-- Carátula / Artwork del proyecto: Ocupa todo el ancho superior de la tarjeta de borde a borde -->
             {project.image && (
-              <div class="w-full aspect-[16/10] sm:aspect-[16/9] min-h-[240px] sm:min-h-[380px] bg-surface border-b border-border-subtle relative group overflow-hidden">
+              <div class="w-full aspect-[16/10] sm:aspect-[16/9] min-h-[290px] sm:min-h-[440px] lg:min-h-[500px] bg-surface border-b border-border-subtle relative group overflow-hidden">
                 <img
                   id={project.imageLight ? `project-img-${project.id}` : undefined}
                   src={project.image}

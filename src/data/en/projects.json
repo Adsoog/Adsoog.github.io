@@ -25,7 +25,7 @@
     "description": "Independent personal editorial publication ('Lo que no dije') engineered with Astro SSG and a Zero-JS by default architecture achieving a 100/100 Google Lighthouse score. Features Astro ClientRouter (View Transitions API) for fluid SPA navigation with persisted sidebar state (transition:persist), Astro Content Collections with compile-time Zod schema validation, interactive MDX essays, automated RSS syndication (/rss.xml), and an editorial 'Paper Tone' palette styled with Tailwind CSS v4 & @tailwindcss/typography.",
     "impact": "Combines classic print aesthetics with modern web performance: zero unnecessary client-side JavaScript, compile-time strict type safety, and instant page transitions between essays.",
     "tags": ["Astro", "Tailwind CSS v4", "Content Collections (Zod)", "MDX", "ClientRouter (SPA)", "RSS Feed"],
-    "metrics": "unsaid.amostudio.online · 100/100 Lighthouse & Zero-JS",
+    "metrics": "100/100 Google Lighthouse · Zero-JS",
     "featured": true,
     "icon": "book-open"
   },
@@ -56,7 +56,7 @@
     "description": "Automation suite featuring a Chrome extension (Manifest V3) paired with a web orchestration platform. Leverages Playwright and AI/LLMs to automate browser navigation, scraping workflows, and complex repetitive web actions.",
     "impact": "Eliminates countless hours of tedious manual browsing workflows, allowing teams to launch headless automation and data extraction with a single click.",
     "tags": ["Python", "Playwright", "Chrome Extension (Manifest V3)", "AI/LLMs", "FastAPI"],
-    "metrics": "crawler.amostudio.online · Coming soon to production",
+    "metrics": "Headless browser automation · In development",
     "featured": true,
     "icon": "bot"
   },
@@ -72,7 +72,7 @@
     "description": "Cross-platform mobile application built in Flutter with a Django backend for event logistics and 360° rotating video booths. Features dynamic video capture, music overlays, custom visual filters, and framed branding assets.",
     "impact": "Processes and distributes personalized video clips to event attendees in real time via high-throughput cloud delivery pipelines.",
     "tags": ["Flutter", "Django", "Python", "Media Processing", "Event Logistics"],
-    "metrics": "k360.amostudio.online · Coming soon to production",
+    "metrics": "360° multimedia pipeline · In development",
     "featured": true,
     "icon": "smartphone"
   },
@@ -87,7 +87,7 @@
     "description": "Official open-access metrology platform for physicochemical measurement verification and normative matrix exports. Powered by a high-throughput FastAPI backend implementing certified mathematical models, notably the Benson & Krause equations for high-precision dissolved oxygen solubility calculations compensated for temperature, atmospheric pressure, and salinity.",
     "impact": "Enables laboratories, field engineers, and industrial compliance teams to instantly validate and calibrate sensors (Dissolved Oxygen, pH, Electrical Conductivity) with certified metrological precision and zero friction.",
     "tags": ["FastAPI", "Python", "Benson & Krause", "Dissolved Oxygen", "Metrology", "Calibration"],
-    "metrics": "check.lojustoapp.com · Dissolved Oxygen Calculations",
+    "metrics": "Dissolved Oxygen Calculations · Metrological Precision",
     "featured": true,
     "icon": "gauge"
   },
