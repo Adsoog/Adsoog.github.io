@@ -10,7 +10,7 @@ export const defaultLang: Lang = 'es';
 export const ui = {
   es: {
     'meta.title': 'Adso Martín Obregón | Lead Software Engineer',
-    'meta.description': 'Ingeniero de software especializado en backend escalable, automatizaciones con IA y diseño de productos digitales de alta precisión.',
+    'meta.description': 'Lead Software Engineer especializado en arquitecturas de backend escalables, automatización y obtención de datos, diseñando herramientas y productos digitales que resuelven problemas reales y optimizan procesos.',
     
     'nav.about': 'SOBRE MÍ',
     'nav.projects': 'PROYECTOS',
@@ -22,7 +22,7 @@ export const ui = {
     'sidebar.status': 'Disponible para nuevos desafíos',
 
     'about.section_title': 'Sobre Mí',
-    'about.lead': 'Ingeniero de software especializado en arquitecturas de backend escalables, automatizaciones inteligentes con IA y productos digitales de alta precisión.',
+    'about.lead': 'Lead Software Engineer especializado en arquitecturas de backend escalables, automatización y obtención de datos. Diseño herramientas y productos digitales que resuelven problemas reales y optimizan procesos, adaptándome a cualquier reto tecnológico para entregar soluciones eficientes.',
     'about.p1': 'Mi nombre completo es <strong class="text-heading font-medium">Adso Martín Obregón Gutiérrez</strong>. Como diseñador y desarrollador de software, me enfoco en crear sistemas confiables que resuelven problemas técnicos y operativos de alta complejidad.',
     'about.p2': 'Mi trabajo abarca desde la arquitectura de <strong class="text-body font-medium">microservicios en backend</strong> (Python, Go, Java Spring Boot) y gestión de servidores <strong class="text-body font-medium">Linux y Docker</strong> para despliegues confiables, hasta la integración con <strong class="text-body font-medium">Google Maps API</strong> para soluciones de geolocalización y movilidad.',
     'about.p3': 'Especialista en <strong class="text-body font-medium">automatizaciones desatendidas</strong> con Playwright, extensiones en Manifest V3 e implementación de soluciones con <strong class="text-body font-medium">IA de Google Gemini / LLMs</strong> orientadas al <strong class="text-body font-medium">procesamiento inteligente y estructuración de documentos de bajo costo</strong>.',
@@ -48,7 +48,7 @@ export const ui = {
   },
   en: {
     'meta.title': 'Adso Martín Obregón | Lead Software Engineer',
-    'meta.description': 'Software Engineer specialized in scalable backends, AI automation workflows, and high-precision digital products.',
+    'meta.description': 'Lead Software Engineer specializing in scalable backend architectures, process automation, and data acquisition, designing digital tools and products that solve real-world problems and optimize workflows.',
 
     'nav.about': 'ABOUT',
     'nav.projects': 'PROJECTS',
@@ -60,7 +60,7 @@ export const ui = {
     'sidebar.status': 'Available for new opportunities',
 
     'about.section_title': 'About Me',
-    'about.lead': 'Software engineer specializing in scalable backend architectures, AI-driven automation workflows, and high-precision digital products.',
+    'about.lead': 'Lead Software Engineer specializing in scalable backend architectures, process automation, and data acquisition. I design digital tools and products that solve real-world challenges and optimize workflows, adapting to any technical requirement to deliver robust solutions.',
     'about.p1': 'My full name is <strong class="text-heading font-medium">Adso Martín Obregón Gutiérrez</strong>. As a software designer and developer, I focus on building reliable systems that solve high-complexity technical and operational challenges.',
     'about.p2': 'My work spans scalable <strong class="text-body font-medium">backend microservices</strong> (Python, Go, Java Spring Boot), containerization with <strong class="text-body font-medium">Docker & Linux servers</strong> for reliable deployments, and integrations with <strong class="text-body font-medium">Google Maps API</strong> for geolocation and route logistics.',
     'about.p3': 'I specialize in <strong class="text-body font-medium">unattended automation workflows</strong> with Playwright, Chrome Extensions (Manifest V3), and AI-powered solutions with <strong class="text-body font-medium">Google Gemini / LLMs</strong> designed for <strong class="text-body font-medium">cost-effective document parsing</strong> and automated data extraction.',
