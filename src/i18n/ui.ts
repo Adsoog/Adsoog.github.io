@@ -9,7 +9,7 @@ export const defaultLang: Lang = 'es';
 
 export const ui = {
   es: {
-    'meta.title': 'Adso Martín Obregón | Desarrollador y Diseñador de Software',
+    'meta.title': 'Adso Martín Obregón | Lead Software Engineer',
     'meta.description': 'Ingeniero de software especializado en backend escalable, automatizaciones con IA y diseño de productos digitales de alta precisión.',
     
     'nav.about': 'SOBRE MÍ',
@@ -18,7 +18,7 @@ export const ui = {
     'nav.experience': 'TRAYECTORIA',
     'nav.contact': 'CONTACTO',
 
-    'sidebar.tagline': 'Desarrollador y Diseñador de Software',
+    'sidebar.tagline': 'Lead Software Engineer',
     'sidebar.status': 'Disponible para nuevos desafíos',
 
     'about.section_title': 'Sobre Mí',
@@ -47,7 +47,7 @@ export const ui = {
     'contact.wa_text': 'Hola Adso, vi tu portfolio y me gustaría conversar',
   },
   en: {
-    'meta.title': 'Adso Martín Obregón | Software Developer & Designer',
+    'meta.title': 'Adso Martín Obregón | Lead Software Engineer',
     'meta.description': 'Software Engineer specialized in scalable backends, AI automation workflows, and high-precision digital products.',
 
     'nav.about': 'ABOUT',
@@ -56,7 +56,7 @@ export const ui = {
     'nav.experience': 'EXPERIENCE',
     'nav.contact': 'CONTACT',
 
-    'sidebar.tagline': 'Software Developer & Designer',
+    'sidebar.tagline': 'Lead Software Engineer',
     'sidebar.status': 'Available for new opportunities',
 
     'about.section_title': 'About Me',

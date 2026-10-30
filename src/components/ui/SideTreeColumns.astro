@@ -1,7 +1,8 @@
 ---
 // SideTreeColumns.astro
-// Árboles laterales minimalistas de silueta limpia y continua (SIN rayas internas),
-// con tronco de buen cuerpo y ramitas compuestas en una paleta sutil Morado + Verde Esmeralda/Salvia.
+// Árboles laterales minimalistas de silueta limpia (sin rayas),
+// con tronco que se ensancha orgánicamente hacia la base y la mitad de ramitas
+// bien espaciadas en paleta sutil Morado + Verde.
 ---
 
 <div
@@ -10,12 +11,12 @@
   aria-hidden="true"
 >
   <!-- ============================================================== -->
-  <!-- MARGEN IZQUIERDO: Silueta limpia (sin rayas) Morado & Verde    -->
+  <!-- MARGEN IZQUIERDO: Silueta limpia, base más ancha, 4 ramitas    -->
   <!-- ============================================================== -->
   <div class="absolute top-0 bottom-0 left-0 w-28 xl:w-36 2xl:w-44 overflow-hidden">
     <!-- Halos ambientales muy sutiles en morado y verde -->
     <div class="absolute top-20 -left-12 w-36 h-72 rounded-full bg-purple-500/[0.04] blur-3xl"></div>
-    <div class="absolute bottom-20 -left-12 w-40 h-72 rounded-full bg-emerald-500/[0.04] blur-3xl"></div>
+    <div class="absolute bottom-20 -left-12 w-44 h-72 rounded-full bg-emerald-500/[0.04] blur-3xl"></div>
 
     <!-- Contenedor con parallax suave al hacer scroll -->
     <div
@@ -34,11 +35,11 @@
           <linearGradient id="trunk-solid-left" x1="0" y1="0" x2="0" y2="1400" gradientUnits="userSpaceOnUse">
             <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.18" />
             <stop offset="45%" stop-color="#686bb3" stop-opacity="0.20" />
-            <stop offset="80%" stop-color="#059669" stop-opacity="0.18" />
-            <stop offset="100%" stop-color="#5b21b6" stop-opacity="0.22" />
+            <stop offset="80%" stop-color="#059669" stop-opacity="0.19" />
+            <stop offset="100%" stop-color="#5b21b6" stop-opacity="0.23" />
           </linearGradient>
 
-          <!-- Color uniforme para las ramas compuestas (conecta fluido con el tronco) -->
+          <!-- Color uniforme para las ramas compuestas -->
           <linearGradient id="branch-tone" x1="0" y1="0" x2="80" y2="0" gradientUnits="userSpaceOnUse">
             <stop offset="0%" stop-color="#686bb3" stop-opacity="0.24" />
             <stop offset="60%" stop-color="#8b5cf6" stop-opacity="0.22" />
@@ -57,23 +58,14 @@
             <stop offset="100%" stop-color="#686bb3" stop-opacity="0.18" />
           </linearGradient>
 
-          <!-- ============================================================ -->
-          <!-- RAMILLETES COMPUESTOS COMPACTOS (Morado + Verde + Moras)     -->
-          <!-- ============================================================ -->
-
-          <!-- Ramillete compuesto 1: Hojitas verdes compactas con brotes/moras moradas en la base -->
+          <!-- Ramillete compuesto 1: Hojitas verdes compactas con moritas en la base -->
           <g id="cluster-green-purple">
-            <!-- Tallito fino del ramillete -->
             <path d="M 0 0 Q 7 -0.6 15 0" stroke="#059669" stroke-width="0.9" stroke-opacity="0.28" stroke-linecap="round" />
-            <!-- Par 1 de hojitas cortas y redondeadas -->
             <path d="M 2.5 -0.2 C 3.2 -3.8, 7.2 -4.2, 8.8 -1.4 C 6.8 -0.1, 4 0, 2.5 -0.2 Z" fill="url(#leaf-green-soft)" />
             <path d="M 3 0.2 C 3.8 3.8, 7.8 4.2, 9.2 1.4 C 7.2 0.1, 4.5 0, 3 0.2 Z" fill="url(#leaf-green-soft)" />
-            <!-- Par 2 (mezcla verde y morado sutil) -->
             <path d="M 7.8 -0.3 C 8.8 -4.0, 12.8 -4.2, 14.2 -1.5 C 12.2 -0.2, 9.5 0, 7.8 -0.3 Z" fill="url(#leaf-purple-soft)" />
             <path d="M 8.2 0.3 C 9.2 3.8, 13.2 4.0, 14.5 1.4 C 12.5 0.2, 9.8 0, 8.2 0.3 Z" fill="url(#leaf-green-soft)" />
-            <!-- Hojita terminal corta -->
             <path d="M 13.2 0 C 15.2 -2.2, 18.8 -2.0, 20.2 0 C 18.8 2.0, 15.2 2.2, 13.2 0 Z" fill="url(#leaf-green-soft)" />
-            <!-- Pequeñas moras / bayas moradas sutiles en la unión del ramillete -->
             <circle cx="2.2" cy="-2.2" r="1.4" fill="#8b5cf6" fill-opacity="0.38" />
             <circle cx="4.0" cy="-1.6" r="1.1" fill="#7c3aed" fill-opacity="0.32" />
             <circle cx="2.8" cy="2.0" r="1.2" fill="#8b5cf6" fill-opacity="0.34" />
@@ -82,20 +74,16 @@
           <!-- Ramillete compuesto 2: Dominante morado sutil con hojitas verdes -->
           <g id="cluster-purple-green">
             <path d="M 0 0 Q 6 -0.5 13 0" stroke="#7c3aed" stroke-width="0.85" stroke-opacity="0.26" stroke-linecap="round" />
-            <!-- Par 1 -->
             <path d="M 2.2 -0.2 C 3.0 -3.6, 6.8 -3.8, 8.2 -1.3 C 6.4 -0.1, 3.8 0, 2.2 -0.2 Z" fill="url(#leaf-purple-soft)" />
             <path d="M 2.5 0.2 C 3.4 3.5, 7.2 3.8, 8.5 1.3 C 6.6 0.1, 4.0 0, 2.5 0.2 Z" fill="url(#leaf-green-soft)" />
-            <!-- Par 2 -->
             <path d="M 7.2 -0.2 C 8.2 -3.5, 11.8 -3.6, 13.0 -1.2 C 11.2 -0.1, 8.6 0, 7.2 -0.2 Z" fill="url(#leaf-green-soft)" />
             <path d="M 7.2 0.2 C 8.2 3.5, 11.8 3.6, 13.0 1.2 C 11.2 0.1, 8.6 0, 7.2 0.2 Z" fill="url(#leaf-purple-soft)" />
-            <!-- Terminal -->
             <path d="M 11.8 0 C 13.8 -2.0, 17.0 -1.8, 18.5 0 C 17.0 1.8, 13.8 2.0, 11.8 0 Z" fill="url(#leaf-purple-soft)" />
-            <!-- Moritas / brotes sutiles -->
             <circle cx="6.8" cy="-2.2" r="1.3" fill="#8b5cf6" fill-opacity="0.40" />
             <circle cx="8.2" cy="-1.5" r="1.0" fill="#10b981" fill-opacity="0.35" />
           </g>
 
-          <!-- Ramillete corto trifoliado (3 hojitas + 2 moritas para sub-ramitas) -->
+          <!-- Ramillete corto trifoliado -->
           <g id="cluster-mini">
             <path d="M 0 0 L 4.5 0" stroke="#686bb3" stroke-width="0.8" stroke-opacity="0.26" stroke-linecap="round" />
             <path d="M 2.2 -0.3 C 3.0 -3.4, 6.5 -3.6, 7.8 -1.4 C 6.2 -0.1, 3.6 0, 2.2 -0.3 Z" fill="url(#leaf-green-soft)" />
@@ -106,153 +94,100 @@
         </defs>
 
         <!-- ============================================================== -->
-        <!-- 1. TRONCO SÓLIDO Y LIMPIO (Una sola silueta suave, SIN RAYAS)  -->
+        <!-- 1. TRONCO SÓLIDO (Más ancho y asentado hacia la parte final)   -->
         <!-- ============================================================== -->
         <path
           d="M 0 1400
              L 0 25
-             C 7 25, 13 75, 16 145
-             C 21 255, 17 375, 23 495
-             C 28 615, 21 745, 27 875
-             C 32 995, 26 1110, 35 1215
-             C 42 1295, 56 1352, 74 1400
+             C 7 25, 13 80, 16 150
+             C 21 265, 18 390, 25 520
+             C 32 650, 28 790, 38 930
+             C 47 1055, 58 1170, 74 1265
+             C 86 1325, 98 1368, 114 1400
              Z"
           fill="url(#trunk-solid-left)"
         />
 
-        <!-- Raíz lateral suave integrada como silueta sólida (sin rayas) -->
+        <!-- Raíz lateral sólida que amplía aún más el anclaje al final -->
         <path
-          d="M 30 1180
-             C 42 1245, 60 1310, 88 1370
-             C 96 1385, 102 1394, 108 1400
-             L 94 1400
-             C 84 1385, 68 1355, 52 1315
-             C 40 1280, 32 1240, 26 1205
+          d="M 52 1135
+             C 68 1215, 92 1295, 122 1362
+             C 130 1380, 136 1392, 142 1400
+             L 124 1400
+             C 112 1380, 94 1345, 76 1295
+             C 62 1255, 50 1205, 44 1165
              Z"
           fill="url(#trunk-solid-left)"
         />
 
         <!-- ============================================================== -->
-        <!-- 2. RAMITAS COMPUESTAS (Bifurcaciones densas + Morado y Verde)  -->
+        <!-- 2. RAMITAS COMPUESTAS (Reducidas a la mitad: 4 bien espaciadas)-->
         <!-- ============================================================== -->
 
-        <!-- Rama Compuesta 1 (Copa alta ~ y: 105) -->
-        <g class="botanical-sway-slow" style="transform-origin: 14px 115px;">
+        <!-- Rama 1: Copa superior (y: 135) -->
+        <g class="botanical-sway-slow" style="transform-origin: 15px 140px;">
           <g stroke="url(#branch-tone)" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M 11 118 C 22 96, 34 80, 48 64" stroke-width="3.2" />
-            <path d="M 22 98 C 32 100, 42 96, 52 88" stroke-width="1.8" />
-            <path d="M 32 82 C 32 68, 36 54, 42 44" stroke-width="1.5" />
-            <path d="M 38 96 C 44 106, 52 110, 60 108" stroke-width="1.2" />
-            <path d="M 10 68 C 18 52, 24 38, 30 26" stroke-width="2.0" />
+            <path d="M 13 142 C 24 120, 36 104, 50 88" stroke-width="3.2" />
+            <path d="M 25 122 C 35 124, 45 120, 54 112" stroke-width="1.8" />
+            <path d="M 34 106 C 34 92, 38 78, 44 68" stroke-width="1.4" />
           </g>
-          <use href="#cluster-green-purple" transform="translate(46, 65) rotate(-35)" />
-          <use href="#cluster-purple-green" transform="translate(50, 89) rotate(-14)" />
-          <use href="#cluster-mini" transform="translate(41, 46) rotate(-60)" />
-          <use href="#cluster-mini" transform="translate(58, 108) rotate(10)" />
-          <use href="#cluster-green-purple" transform="translate(29, 28) rotate(-52) scale(0.9)" />
+          <use href="#cluster-green-purple" transform="translate(48, 89) rotate(-34)" />
+          <use href="#cluster-purple-green" transform="translate(52, 113) rotate(-12)" />
+          <use href="#cluster-mini" transform="translate(43, 70) rotate(-58)" />
         </g>
 
-        <!-- Rama Compuesta 2 (y: 265) -->
-        <g class="botanical-sway-medium" style="transform-origin: 18px 270px;">
+        <!-- Rama 2: Media-alta (y: 430) -->
+        <g class="botanical-sway-medium" style="transform-origin: 21px 435px;">
           <g stroke="url(#branch-tone)" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M 16 272 C 30 252, 44 240, 58 228" stroke-width="3.5" />
-            <path d="M 30 254 C 42 258, 52 256, 62 250" stroke-width="1.9" />
-            <path d="M 42 242 C 44 228, 50 216, 58 206" stroke-width="1.4" />
-            <path d="M 24 260 C 26 244, 32 230, 38 220" stroke-width="1.3" />
-            <path d="M 46 256 C 52 266, 60 270, 68 268" stroke-width="1.1" />
+            <path d="M 19 438 C 34 416, 48 402, 64 390" stroke-width="3.5" />
+            <path d="M 34 418 C 46 424, 56 422, 66 416" stroke-width="1.9" />
+            <path d="M 46 404 C 50 390, 56 378, 64 368" stroke-width="1.4" />
           </g>
-          <use href="#cluster-purple-green" transform="translate(56, 229) rotate(-24)" />
-          <use href="#cluster-green-purple" transform="translate(60, 250) rotate(-6)" />
-          <use href="#cluster-mini" transform="translate(56, 208) rotate(-46)" />
-          <use href="#cluster-mini" transform="translate(37, 222) rotate(-56)" />
-          <use href="#cluster-mini" transform="translate(66, 268) rotate(12)" />
+          <use href="#cluster-purple-green" transform="translate(62, 391) rotate(-22)" />
+          <use href="#cluster-green-purple" transform="translate(64, 416) rotate(-5)" />
+          <use href="#cluster-mini" transform="translate(62, 370) rotate(-44)" />
         </g>
 
-        <!-- Rama Compuesta 3 (y: 435) -->
-        <g class="botanical-sway-gentle" style="transform-origin: 19px 440px;">
+        <!-- Rama 3: Media-baja (y: 745) -->
+        <g class="botanical-sway-gentle" style="transform-origin: 30px 750px;">
           <g stroke="url(#branch-tone)" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M 17 442 C 32 420, 48 406, 64 394" stroke-width="3.6" />
-            <path d="M 32 422 C 44 428, 56 426, 66 420" stroke-width="2.0" />
-            <path d="M 46 408 C 50 394, 56 382, 64 372" stroke-width="1.5" />
-            <path d="M 50 426 C 58 436, 66 440, 74 438" stroke-width="1.2" />
-            <path d="M 28 426 C 30 410, 36 398, 42 388" stroke-width="1.2" />
+            <path d="M 28 752 C 44 730, 58 716, 74 704" stroke-width="3.6" />
+            <path d="M 44 732 C 56 738, 66 736, 76 730" stroke-width="1.9" />
+            <path d="M 56 718 C 60 704, 66 692, 74 682" stroke-width="1.4" />
           </g>
-          <use href="#cluster-green-purple" transform="translate(62, 395) rotate(-22)" />
-          <use href="#cluster-purple-green" transform="translate(64, 420) rotate(-5)" />
-          <use href="#cluster-mini" transform="translate(62, 374) rotate(-44)" />
-          <use href="#cluster-mini" transform="translate(72, 438) rotate(14)" />
-          <use href="#cluster-mini" transform="translate(41, 390) rotate(-52)" />
+          <use href="#cluster-green-purple" transform="translate(72, 705) rotate(-22)" />
+          <use href="#cluster-purple-green" transform="translate(74, 730) rotate(-6)" />
+          <use href="#cluster-mini" transform="translate(72, 684) rotate(-45)" />
         </g>
 
-        <!-- Rama Compuesta 4 (y: 575) -->
-        <g class="botanical-sway-slow" style="transform-origin: 24px 580px;">
+        <!-- Rama 4: Baja cerca del ensanchamiento (y: 1035) -->
+        <g class="botanical-sway-slow" style="transform-origin: 45px 1040px;">
           <g stroke="url(#branch-tone)" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M 22 582 C 34 566, 46 554, 56 546" stroke-width="3.0" />
-            <path d="M 36 564 C 46 568, 54 568, 62 562" stroke-width="1.6" />
-            <path d="M 44 556 C 46 544, 52 534, 58 526" stroke-width="1.2" />
+            <path d="M 43 1042 C 56 1024, 68 1014, 80 1006" stroke-width="3.0" />
+            <path d="M 58 1024 C 66 1028, 74 1028, 82 1024" stroke-width="1.6" />
           </g>
-          <use href="#cluster-purple-green" transform="translate(54, 547) rotate(-26)" />
-          <use href="#cluster-green-purple" transform="translate(60, 562) rotate(-4) scale(0.9)" />
-          <use href="#cluster-mini" transform="translate(56, 528) rotate(-45)" />
+          <use href="#cluster-purple-green" transform="translate(78, 1007) rotate(-22) scale(0.92)" />
+          <use href="#cluster-mini" transform="translate(80, 1024) rotate(-4)" />
         </g>
 
-        <!-- Rama Compuesta 5 (y: 725) -->
-        <g class="botanical-sway-medium" style="transform-origin: 21px 730px;">
-          <g stroke="url(#branch-tone)" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M 19 732 C 34 710, 50 696, 66 684" stroke-width="3.6" />
-            <path d="M 34 712 C 46 718, 58 716, 68 710" stroke-width="1.9" />
-            <path d="M 48 698 C 52 684, 58 672, 66 662" stroke-width="1.4" />
-            <path d="M 52 716 C 60 726, 68 728, 76 726" stroke-width="1.1" />
-          </g>
-          <use href="#cluster-green-purple" transform="translate(64, 685) rotate(-22)" />
-          <use href="#cluster-purple-green" transform="translate(66, 710) rotate(-6)" />
-          <use href="#cluster-mini" transform="translate(64, 664) rotate(-45)" />
-          <use href="#cluster-mini" transform="translate(74, 726) rotate(12)" />
-        </g>
-
-        <!-- Rama Compuesta 6 (y: 900) -->
-        <g class="botanical-sway-slow" style="transform-origin: 26px 905px;">
-          <g stroke="url(#branch-tone)" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M 24 908 C 38 888, 52 876, 66 866" stroke-width="3.3" />
-            <path d="M 40 888 C 50 894, 60 892, 68 888" stroke-width="1.7" />
-            <path d="M 48 880 C 52 866, 58 856, 64 848" stroke-width="1.3" />
-          </g>
-          <use href="#cluster-purple-green" transform="translate(64, 867) rotate(-20)" />
-          <use href="#cluster-green-purple" transform="translate(66, 888) rotate(-5) scale(0.9)" />
-          <use href="#cluster-mini" transform="translate(62, 850) rotate(-42)" />
-        </g>
-
-        <!-- Rama Compuesta 7 (y: 1070) -->
-        <g class="botanical-sway-gentle" style="transform-origin: 26px 1075px;">
-          <g stroke="url(#branch-tone)" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M 24 1078 C 36 1062, 48 1052, 58 1044" stroke-width="2.8" />
-            <path d="M 38 1060 C 46 1064, 54 1064, 62 1060" stroke-width="1.5" />
-          </g>
-          <use href="#cluster-green-purple" transform="translate(56, 1045) rotate(-22) scale(0.9)" />
-          <use href="#cluster-mini" transform="translate(60, 1060) rotate(-4)" />
-        </g>
-
-        <!-- 3. ESPORAS FLOTANTES MORADAS Y VERDES -->
+        <!-- 3. ESPORAS FLOTANTES SUAVES -->
         <g>
-          <circle class="spore-float-1" cx="72" cy="110" r="1.7" fill="#8b5cf6" fill-opacity="0.36" />
-          <circle class="spore-float-2" cx="82" cy="240" r="1.5" fill="#10b981" fill-opacity="0.36" />
-          <circle class="spore-float-3" cx="88" cy="410" r="1.8" fill="#8b5cf6" fill-opacity="0.34" />
-          <circle class="spore-float-1" cx="76" cy="555" r="1.5" fill="#10b981" fill-opacity="0.34" />
-          <circle class="spore-float-2" cx="88" cy="695" r="1.7" fill="#8b5cf6" fill-opacity="0.34" />
-          <circle class="spore-float-3" cx="84" cy="875" r="1.5" fill="#10b981" fill-opacity="0.34" />
-          <circle class="spore-float-1" cx="76" cy="1055" r="1.6" fill="#8b5cf6" fill-opacity="0.32" />
+          <circle class="spore-float-1" cx="72" cy="125" r="1.7" fill="#8b5cf6" fill-opacity="0.35" />
+          <circle class="spore-float-2" cx="84" cy="400" r="1.6" fill="#10b981" fill-opacity="0.35" />
+          <circle class="spore-float-3" cx="94" cy="715" r="1.7" fill="#8b5cf6" fill-opacity="0.33" />
+          <circle class="spore-float-1" cx="98" cy="1015" r="1.5" fill="#10b981" fill-opacity="0.32" />
         </g>
       </svg>
     </div>
   </div>
 
   <!-- ============================================================== -->
-  <!-- MARGEN DERECHO: Silueta limpia (sin rayas) Morado & Verde      -->
+  <!-- MARGEN DERECHO: Silueta limpia, base más ancha, 4 ramitas      -->
   <!-- ============================================================== -->
   <div class="absolute top-0 bottom-0 right-0 w-28 xl:w-36 2xl:w-44 overflow-hidden">
     <!-- Halos ambientales muy sutiles en morado y verde -->
     <div class="absolute top-28 -right-12 w-36 h-72 rounded-full bg-emerald-500/[0.04] blur-3xl"></div>
-    <div class="absolute bottom-24 -right-12 w-40 h-72 rounded-full bg-purple-500/[0.04] blur-3xl"></div>
+    <div class="absolute bottom-24 -right-12 w-44 h-72 rounded-full bg-purple-500/[0.04] blur-3xl"></div>
 
     <!-- Contenedor con parallax suave al hacer scroll -->
     <div
@@ -271,7 +206,7 @@
             <stop offset="0%" stop-color="#059669" stop-opacity="0.17" />
             <stop offset="45%" stop-color="#8b5cf6" stop-opacity="0.20" />
             <stop offset="80%" stop-color="#686bb3" stop-opacity="0.19" />
-            <stop offset="100%" stop-color="#5b21b6" stop-opacity="0.22" />
+            <stop offset="100%" stop-color="#5b21b6" stop-opacity="0.23" />
           </linearGradient>
 
           <linearGradient id="branch-tone-right" x1="160" y1="0" x2="80" y2="0" gradientUnits="userSpaceOnUse">
@@ -313,138 +248,85 @@
           </g>
         </defs>
 
-        <!-- 1. TRONCO DERECHO SÓLIDO Y LIMPIO (SIN RAYAS) -->
+        <!-- 1. TRONCO DERECHO SÓLIDO (Más ancho hacia el final, sin rayas) -->
         <path
           d="M 160 1400
              L 160 25
-             C 153 25, 147 75, 144 145
-             C 139 255, 143 375, 137 495
-             C 132 615, 139 745, 133 875
-             C 128 995, 134 1110, 125 1215
-             C 118 1295, 104 1352, 86 1400
+             C 153 25, 147 80, 144 150
+             C 139 265, 142 390, 135 520
+             C 128 650, 132 790, 122 930
+             C 113 1055, 102 1170, 86 1265
+             C 74 1325, 62 1368, 46 1400
              Z"
           fill="url(#trunk-solid-right)"
         />
 
-        <!-- Raíz lateral derecha integrada como silueta sólida -->
+        <!-- Raíz lateral derecha sólida más amplia al final -->
         <path
-          d="M 130 1180
-             C 118 1245, 100 1310, 72 1370
-             C 64 1385, 58 1394, 52 1400
-             L 66 1400
-             C 76 1385, 92 1355, 108 1315
-             C 120 1280, 128 1240, 134 1205
+          d="M 108 1135
+             C 92 1215, 68 1295, 38 1362
+             C 30 1380, 24 1392, 18 1400
+             L 36 1400
+             C 48 1380, 66 1345, 84 1295
+             C 98 1255, 110 1205, 116 1165
              Z"
           fill="url(#trunk-solid-right)"
         />
 
-        <!-- 2. RAMITAS COMPUESTAS DERECHAS -->
+        <!-- 2. RAMITAS COMPUESTAS DERECHAS (Reducidas a 4, desfasadas respecto al lado izquierdo) -->
 
-        <!-- Rama Compuesta Derecha 1 (y: 145) -->
-        <g class="botanical-sway-medium" style="transform-origin: 146px 150px;">
+        <!-- Rama Derecha 1: Copa superior (y: 195) -->
+        <g class="botanical-sway-medium" style="transform-origin: 143px 200px;">
           <g stroke="url(#branch-tone-right)" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M 149 152 C 138 130, 126 114, 112 98" stroke-width="3.2" />
-            <path d="M 138 132 C 128 134, 118 130, 108 122" stroke-width="1.8" />
-            <path d="M 128 116 C 128 102, 124 88, 118 78" stroke-width="1.5" />
-            <path d="M 122 130 C 116 140, 108 144, 100 142" stroke-width="1.2" />
-            <path d="M 150 92 C 142 76, 136 62, 130 50" stroke-width="2.0" />
+            <path d="M 145 202 C 134 180, 122 164, 108 148" stroke-width="3.2" />
+            <path d="M 134 182 C 124 184, 114 180, 106 172" stroke-width="1.8" />
+            <path d="M 125 166 C 125 152, 121 138, 115 128" stroke-width="1.4" />
           </g>
-          <use href="#cluster-purple-green-left" transform="translate(114, 99) rotate(35)" />
-          <use href="#cluster-green-purple-left" transform="translate(110, 123) rotate(14)" />
-          <use href="#cluster-mini-left" transform="translate(119, 80) rotate(60)" />
-          <use href="#cluster-mini-left" transform="translate(102, 142) rotate(-10)" />
-          <use href="#cluster-green-purple-left" transform="translate(131, 52) rotate(52) scale(0.9)" />
+          <use href="#cluster-purple-green-left" transform="translate(110, 149) rotate(34)" />
+          <use href="#cluster-green-purple-left" transform="translate(108, 173) rotate(12)" />
+          <use href="#cluster-mini-left" transform="translate(116, 130) rotate(58)" />
         </g>
 
-        <!-- Rama Compuesta Derecha 2 (y: 330) -->
-        <g class="botanical-sway-slow" style="transform-origin: 141px 335px;">
+        <!-- Rama Derecha 2: Media-alta (y: 515) -->
+        <g class="botanical-sway-slow" style="transform-origin: 136px 520px;">
           <g stroke="url(#branch-tone-right)" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M 143 338 C 130 318, 116 306, 102 294" stroke-width="3.5" />
-            <path d="M 130 320 C 118 324, 108 322, 98 316" stroke-width="1.9" />
-            <path d="M 118 308 C 116 294, 110 282, 102 272" stroke-width="1.4" />
-            <path d="M 136 326 C 134 310, 128 296, 122 286" stroke-width="1.3" />
-            <path d="M 114 322 C 108 332, 100 336, 92 334" stroke-width="1.1" />
+            <path d="M 138 522 C 124 500, 110 486, 94 474" stroke-width="3.5" />
+            <path d="M 124 502 C 112 508, 102 506, 92 500" stroke-width="1.9" />
+            <path d="M 112 488 C 108 474, 102 462, 94 452" stroke-width="1.4" />
           </g>
-          <use href="#cluster-green-purple-left" transform="translate(104, 295) rotate(24)" />
-          <use href="#cluster-purple-green-left" transform="translate(100, 316) rotate(6)" />
-          <use href="#cluster-mini-left" transform="translate(104, 274) rotate(46)" />
-          <use href="#cluster-mini-left" transform="translate(123, 288) rotate(56)" />
-          <use href="#cluster-mini-left" transform="translate(94, 334) rotate(-12)" />
+          <use href="#cluster-green-purple-left" transform="translate(96, 475) rotate(22)" />
+          <use href="#cluster-purple-green-left" transform="translate(94, 500) rotate(5)" />
+          <use href="#cluster-mini-left" transform="translate(96, 454) rotate(44)" />
         </g>
 
-        <!-- Rama Compuesta Derecha 3 (y: 515) -->
-        <g class="botanical-sway-gentle" style="transform-origin: 136px 520px;">
+        <!-- Rama Derecha 3: Media-baja (y: 825) -->
+        <g class="botanical-sway-gentle" style="transform-origin: 127px 830px;">
           <g stroke="url(#branch-tone-right)" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M 138 522 C 124 500, 108 486, 92 474" stroke-width="3.6" />
-            <path d="M 124 502 C 112 508, 100 506, 90 500" stroke-width="2.0" />
-            <path d="M 110 488 C 106 474, 100 462, 92 452" stroke-width="1.5" />
-            <path d="M 106 506 C 98 516, 90 520, 82 518" stroke-width="1.2" />
-            <path d="M 130 506 C 128 490, 122 478, 116 468" stroke-width="1.2" />
+            <path d="M 129 832 C 114 810, 100 796, 84 784" stroke-width="3.6" />
+            <path d="M 114 812 C 102 818, 92 816, 82 810" stroke-width="1.9" />
+            <path d="M 102 798 C 98 784, 92 772, 84 762" stroke-width="1.4" />
           </g>
-          <use href="#cluster-purple-green-left" transform="translate(94, 475) rotate(22)" />
-          <use href="#cluster-green-purple-left" transform="translate(92, 500) rotate(5)" />
-          <use href="#cluster-mini-left" transform="translate(94, 454) rotate(44)" />
-          <use href="#cluster-mini-left" transform="translate(84, 518) rotate(-14)" />
-          <use href="#cluster-mini-left" transform="translate(117, 470) rotate(52)" />
+          <use href="#cluster-purple-green-left" transform="translate(86, 785) rotate(22)" />
+          <use href="#cluster-green-purple-left" transform="translate(84, 810) rotate(6)" />
+          <use href="#cluster-mini-left" transform="translate(86, 764) rotate(45)" />
         </g>
 
-        <!-- Rama Compuesta Derecha 4 (y: 655) -->
-        <g class="botanical-sway-medium" style="transform-origin: 136px 660px;">
+        <!-- Rama Derecha 4: Baja cerca del ensanchamiento (y: 1090) -->
+        <g class="botanical-sway-slow" style="transform-origin: 112px 1095px;">
           <g stroke="url(#branch-tone-right)" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M 138 662 C 126 646, 114 634, 104 626" stroke-width="3.0" />
-            <path d="M 124 644 C 114 648, 106 648, 98 642" stroke-width="1.6" />
-            <path d="M 116 636 C 114 624, 108 614, 102 606" stroke-width="1.2" />
+            <path d="M 114 1097 C 102 1080, 90 1070, 78 1062" stroke-width="3.0" />
+            <path d="M 100 1080 C 92 1084, 84 1084, 76 1080" stroke-width="1.6" />
           </g>
-          <use href="#cluster-green-purple-left" transform="translate(106, 627) rotate(26)" />
-          <use href="#cluster-purple-green-left" transform="translate(100, 642) rotate(4) scale(0.9)" />
-          <use href="#cluster-mini-left" transform="translate(104, 608) rotate(45)" />
-        </g>
-
-        <!-- Rama Compuesta Derecha 5 (y: 805) -->
-        <g class="botanical-sway-slow" style="transform-origin: 137px 810px;">
-          <g stroke="url(#branch-tone-right)" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M 139 812 C 124 790, 108 776, 92 764" stroke-width="3.6" />
-            <path d="M 124 792 C 112 798, 100 796, 90 790" stroke-width="1.9" />
-            <path d="M 110 778 C 106 764, 100 752, 92 742" stroke-width="1.4" />
-            <path d="M 106 796 C 98 806, 90 808, 82 806" stroke-width="1.1" />
-          </g>
-          <use href="#cluster-purple-green-left" transform="translate(94, 765) rotate(22)" />
-          <use href="#cluster-green-purple-left" transform="translate(92, 790) rotate(6)" />
-          <use href="#cluster-mini-left" transform="translate(94, 744) rotate(45)" />
-          <use href="#cluster-mini-left" transform="translate(84, 806) rotate(-12)" />
-        </g>
-
-        <!-- Rama Compuesta Derecha 6 (y: 975) -->
-        <g class="botanical-sway-gentle" style="transform-origin: 132px 980px;">
-          <g stroke="url(#branch-tone-right)" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M 134 982 C 120 962, 106 950, 92 940" stroke-width="3.3" />
-            <path d="M 118 962 C 108 968, 98 966, 90 962" stroke-width="1.7" />
-            <path d="M 110 954 C 106 940, 100 930, 94 922" stroke-width="1.3" />
-          </g>
-          <use href="#cluster-green-purple-left" transform="translate(94, 941) rotate(20)" />
-          <use href="#cluster-purple-green-left" transform="translate(92, 962) rotate(5) scale(0.9)" />
-          <use href="#cluster-mini-left" transform="translate(96, 924) rotate(42)" />
-        </g>
-
-        <!-- Rama Compuesta Derecha 7 (y: 1115) -->
-        <g class="botanical-sway-slow" style="transform-origin: 132px 1120px;">
-          <g stroke="url(#branch-tone-right)" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M 134 1122 C 122 1106, 110 1096, 100 1088" stroke-width="2.8" />
-            <path d="M 120 1104 C 112 1108, 104 1108, 96 1104" stroke-width="1.5" />
-          </g>
-          <use href="#cluster-purple-green-left" transform="translate(102, 1089) rotate(22) scale(0.9)" />
-          <use href="#cluster-mini-left" transform="translate(98, 1104) rotate(4)" />
+          <use href="#cluster-green-purple-left" transform="translate(80, 1063) rotate(22) scale(0.92)" />
+          <use href="#cluster-mini-left" transform="translate(78, 1080) rotate(4)" />
         </g>
 
         <!-- 3. ESPORAS FLOTANTES DERECHAS -->
         <g>
-          <circle class="spore-float-2" cx="86" cy="135" r="1.7" fill="#10b981" fill-opacity="0.36" />
-          <circle class="spore-float-3" cx="76" cy="305" r="1.6" fill="#8b5cf6" fill-opacity="0.35" />
-          <circle class="spore-float-1" cx="68" cy="490" r="1.8" fill="#10b981" fill-opacity="0.34" />
-          <circle class="spore-float-3" cx="82" cy="640" r="1.5" fill="#8b5cf6" fill-opacity="0.34" />
-          <circle class="spore-float-1" cx="70" cy="780" r="1.7" fill="#10b981" fill-opacity="0.34" />
-          <circle class="spore-float-2" cx="72" cy="950" r="1.6" fill="#8b5cf6" fill-opacity="0.34" />
-          <circle class="spore-float-3" cx="80" cy="1095" r="1.6" fill="#10b981" fill-opacity="0.32" />
+          <circle class="spore-float-2" cx="86" cy="175" r="1.7" fill="#10b981" fill-opacity="0.35" />
+          <circle class="spore-float-3" cx="74" cy="485" r="1.6" fill="#8b5cf6" fill-opacity="0.34" />
+          <circle class="spore-float-1" cx="64" cy="795" r="1.7" fill="#10b981" fill-opacity="0.33" />
+          <circle class="spore-float-3" cx="60" cy="1070" r="1.5" fill="#8b5cf6" fill-opacity="0.32" />
         </g>
       </svg>
     </div>
