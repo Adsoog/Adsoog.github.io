@@ -27,10 +27,67 @@ const socialLinks = [
 ];
 ---
 
-<aside class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-5/12 lg:flex-col lg:justify-between lg:py-24 py-12">
+<!-- ============================================================== -->
+<!-- HEADER MÓVIL STICKY: Siempre visible en pantallas pequeñas     -->
+<!-- ============================================================== -->
+<header class="lg:hidden sticky top-0 z-40 -mx-6 md:-mx-12 px-4 sm:px-6 py-2.5 bg-canvas/90 backdrop-blur-md border-b border-border-subtle flex items-center justify-between gap-2 shadow-xs">
+  <!-- Nombre / Inicio -->
+  <a href="#sobre-mi" class="text-xs font-mono font-semibold text-heading tracking-tight shrink-0 hover:text-accent transition-colors">
+    Adso M.
+  </a>
+
+  <!-- Track de navegación horizontal para saltar de sección -->
+  <nav class="flex-1 overflow-x-auto scrollbar-none py-0.5 mx-1" aria-label="Navegación móvil">
+    <ul class="flex items-center gap-1 mobile-nav-track">
+      {navItems.map((item) => (
+        <li>
+          <a
+            href={`#${item.id}`}
+            data-section={item.id}
+            class="nav-link whitespace-nowrap text-[11px] font-mono uppercase tracking-wider px-2 py-1 rounded-md text-subtle hover:text-heading hover:bg-surface-hover/60 transition-all duration-150 inline-block"
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+
+  <!-- Selector de idioma móvil siempre a la mano -->
+  <div class="flex items-center gap-1 text-[11px] font-mono shrink-0 border-l border-border-subtle/80 pl-2">
+    <a
+      href="/"
+      data-lang-switch="es"
+      class:list={[
+        "px-1.5 py-0.5 rounded font-medium transition-colors",
+        lang === 'es' ? "bg-surface-hover text-heading border border-border-active shadow-xs" : "text-subtle hover:text-heading"
+      ]}
+      aria-label="Español"
+    >
+      ES
+    </a>
+    <span class="text-subtle/40">/</span>
+    <a
+      href="/en"
+      data-lang-switch="en"
+      class:list={[
+        "px-1.5 py-0.5 rounded font-medium transition-colors",
+        lang === 'en' ? "bg-surface-hover text-heading border border-border-active shadow-xs" : "text-subtle hover:text-heading"
+      ]}
+      aria-label="English"
+    >
+      EN
+    </a>
+  </div>
+</header>
+
+<!-- ============================================================== -->
+<!-- SIDEBAR DESKTOP: Columna fija lateral en pantallas grandes     -->
+<!-- ============================================================== -->
+<aside class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-5/12 lg:flex-col lg:justify-between lg:py-24 py-8">
   <!-- Top identity block -->
   <div>
-    <!-- Language Switcher Pill -->
+    <!-- Language Switcher Pill Desktop -->
     <div class="mb-6 flex items-center gap-1.5 text-xs font-mono">
       <span class="text-subtle mr-1">LANG:</span>
       <a
@@ -69,7 +126,7 @@ const socialLinks = [
       {t('sidebar.tagline')}
     </h2>
 
-    <!-- Navigation: Desktop y Móvil/Tablet con scroll horizontal accesible -->
+    <!-- Navigation: Desktop -->
     <nav class="mt-8 lg:mt-10" aria-label="Secciones de la página y enlaces">
       <!-- Secciones de scroll interno -->
       <ul class="flex flex-wrap lg:flex-col gap-2 sm:gap-2.5 lg:gap-3 lg:space-y-0 w-full lg:w-max">
@@ -112,60 +169,105 @@ const socialLinks = [
 
     if (!sections.length || !navLinks.length) return;
 
-    function activateSection(id) {
+    let currentActiveId = 'sobre-mi';
+
+    function activateSection(id, updateHash = true) {
+      if (!id) return;
+      currentActiveId = id;
+
       navLinks.forEach((link) => {
-        if (link.getAttribute('data-section') === id) {
+        const section = link.getAttribute('data-section');
+        const isMobilePill = link.closest('.mobile-nav-track');
+
+        if (section === id) {
           link.classList.remove('text-subtle');
-          link.classList.add('text-heading', 'font-semibold', 'translate-x-1');
+          link.classList.add('text-heading', 'font-semibold');
+          if (isMobilePill) {
+            link.classList.add('bg-surface-hover', 'border', 'border-border-active/60');
+            link.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+          } else {
+            link.classList.add('translate-x-1');
+          }
         } else {
           link.classList.remove('text-heading', 'font-semibold', 'translate-x-1');
+          if (isMobilePill) {
+            link.classList.remove('bg-surface-hover', 'border', 'border-border-active/60');
+          }
           link.classList.add('text-subtle');
         }
       });
+
+      if (updateHash) {
+        const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+        if (scrollY < 120 || id === 'sobre-mi') {
+          if (window.location.hash) {
+            history.replaceState(null, '', window.location.pathname + window.location.search);
+          }
+        } else {
+          history.replaceState(null, '', '#' + id);
+        }
+      }
     }
 
     const observerOptions = {
       root: null,
-      rootMargin: '-20% 0px -65% 0px',
+      rootMargin: '-15% 0px -70% 0px',
       threshold: 0
     };
 
     const observer = new IntersectionObserver((entries) => {
-      // Si estamos casi al final de la página, forzamos la última sección (contacto)
-      const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60;
+      const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+
+      // Si estamos en la parte superior, forzamos sobre-mi y limpiamos el hash
+      if (scrollY < 120) {
+        activateSection('sobre-mi', true);
+        return;
+      }
+
+      // Si estamos al final de la página, forzamos contacto
+      const isAtBottom = window.innerHeight + scrollY >= document.documentElement.scrollHeight - 70;
       if (isAtBottom) {
-        activateSection(sections[sections.length - 1].getAttribute('id'));
+        activateSection(sections[sections.length - 1].getAttribute('id'), true);
         return;
       }
 
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const id = entry.target.getAttribute('id');
-          activateSection(id);
+          activateSection(id, true);
         }
       });
     }, observerOptions);
 
     sections.forEach((section) => observer.observe(section));
 
-    // Listener de scroll para asegurar que la última sección se marque al llegar al fondo
+    // Scroll listener para cambios inmediatos en el top o fondo
     window.addEventListener('scroll', () => {
-      const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60;
+      const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+      if (scrollY < 120) {
+        activateSection('sobre-mi', true);
+        return;
+      }
+      const isAtBottom = window.innerHeight + scrollY >= document.documentElement.scrollHeight - 70;
       if (isAtBottom) {
-        activateSection(sections[sections.length - 1].getAttribute('id'));
+        activateSection(sections[sections.length - 1].getAttribute('id'), true);
       }
     }, { passive: true });
 
-    // Mantener la sección actual (hash) al cambiar de idioma
+    // Mantener la sección visible real al cambiar de idioma (NUNCA saltar abajo si el usuario está arriba)
     const langSwitchers = document.querySelectorAll('[data-lang-switch]');
     langSwitchers.forEach((el) => {
       el.addEventListener('click', (e) => {
         e.preventDefault();
         const targetLang = el.getAttribute('data-lang-switch');
         localStorage.setItem('preferred_lang', targetLang);
-        const currentHash = window.location.hash || '';
+
+        const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+        // Si el usuario está cerca de la parte superior (< 150px), NO usar hash
+        const isAtTop = scrollY < 150;
+        const targetHash = isAtTop ? '' : (currentActiveId && currentActiveId !== 'sobre-mi' ? '#' + currentActiveId : '');
         const targetBase = targetLang === 'en' ? '/en' : '/';
-        window.location.href = targetBase + currentHash;
+        window.location.href = targetBase + targetHash;
       });
     });
   }
